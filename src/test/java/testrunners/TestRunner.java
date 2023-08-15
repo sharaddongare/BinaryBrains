@@ -11,8 +11,9 @@ import org.junit.runner.RunWith;
 		glue = {"stepdefinitions"},
 		tags="@Mytag",
 		plugin = {"pretty",
-				/*"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",*/
-				"timeline:test-output-thread/"}
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+				"timeline:test-output-thread/"},
+		stepNotifications = true
 		//plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		
 		)

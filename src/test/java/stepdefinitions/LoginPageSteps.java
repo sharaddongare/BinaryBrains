@@ -8,6 +8,7 @@ import com.qa.factory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class LoginPageSteps {
 
@@ -29,7 +30,8 @@ public class LoginPageSteps {
 
 	@Then("page title should be {string}")
 	public void page_title_should_be(String expectedTitleName) {
-		//Assert.assertTrue(title.contains(expectedTitleName));
+		Assert.assertTrue(title.contains(expectedTitleName));
+
 	}
 
 	@Then("forgot your password link should be displayed")
