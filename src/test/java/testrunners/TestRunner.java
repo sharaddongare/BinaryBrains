@@ -7,16 +7,14 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"src/test/java/Features"},
-		glue = {"stepdefinitions"},
-		tags="@Mytag",
-		plugin = {"pretty",
-				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-				"timeline:test-output-thread/"},
-		stepNotifications = true
-		//plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-		
-		)
+        features = {"src/test/java/Features"},
+        glue = {"stepdefinitions"},
+        tags = "@Mytag",
+        plugin = {"pretty","html:target/cucumber", "json:target/cucumber.json"},
+        stepNotifications = true
+        //plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+
+)
 
 public class TestRunner {
 
