@@ -8,16 +8,20 @@ import com.qa.factory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 
 public class LoginPageSteps {
 
 	private static String title;
 	private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+	private static final Logger LOG = LogManager.getLogger(LoginPageSteps.class);
 
 	@Given("user is on login page")
 	public void user_is_on_login_page() {
-
+		LOG.info("User is navigating to login page");
 		DriverFactory.getDriver()
 				.get("https://parabank.parasoft.com/parabank/index.htm");
 	}

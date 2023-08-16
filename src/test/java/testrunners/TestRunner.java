@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/java/Features"},
         glue = {"stepdefinitions"},
         tags = "@Mytag",
-        plugin = {"pretty","html:target/cucumber", "json:target/cucumber.json"},
+        plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "timeline:test-output-thread/", "html:target/cucumber", "json:target/cucumber.json"},
         stepNotifications = true
         //plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 
