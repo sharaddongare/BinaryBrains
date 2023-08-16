@@ -38,6 +38,11 @@
         <artifactId>cucumber-junit</artifactId>
         <version>7.10.0</version>
     </dependency>
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.22</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
     <dependency>
         <groupId>io.cucumber</groupId>
@@ -71,8 +76,8 @@
                 <version>3.11.0</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
             <plugin>
