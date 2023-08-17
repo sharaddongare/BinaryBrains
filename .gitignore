@@ -1,9 +1,5 @@
-# ignore ALL .log files
 *.log
-
-# ignore ALL files in ANY directory named temp
-temp/
-target/
-test-output/
-test-output-thread/
+*.idea/
+*/target/**
 test output/
+test-output-thread/
