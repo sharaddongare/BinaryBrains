@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: Login page title
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 13.58 s <<< FAILURE! -- in Login page title
+Login page title.page title should be "IngParaBanking" -- Time elapsed: 0.021 s <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at stepdefinitions.LoginPageSteps.page_title_should_be(LoginPageSteps.java:37)
+	at ✽.page title should be "IngParaBanking"(file:///D:/Nilesh%20PP/Hackthon/BinaryBrains/src/test/java/Features/LoginPageAgain.feature:7)
+
+Login page title.page title should be "IngParaBanking" -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at stepdefinitions.LoginPageSteps.page_title_should_be(LoginPageSteps.java:37)
+	at ✽.page title should be "IngParaBanking"(file:///D:/Nilesh%20PP/Hackthon/BinaryBrains/src/test/java/Features/LoginPage.feature:7)
+
+Login page title -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at stepdefinitions.LoginPageSteps.page_title_should_be(LoginPageSteps.java:37)
+	at ✽.page title should be "IngParaBanking"(file:///D:/Nilesh%20PP/Hackthon/BinaryBrains/src/test/java/Features/LoginPageAgain.feature:7)
+
+Login page title -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at stepdefinitions.LoginPageSteps.page_title_should_be(LoginPageSteps.java:37)
+	at ✽.page title should be "IngParaBanking"(file:///D:/Nilesh%20PP/Hackthon/BinaryBrains/src/test/java/Features/LoginPage.feature:7)
+
