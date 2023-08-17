@@ -1,6 +1,6 @@
 *.log
 *.idea/
-*/target/**
+/target/
 test output/
 test-output-thread/
 *.class
