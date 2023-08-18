@@ -1,4 +1,4 @@
-package com.pages;
+package com.pages.gui;
 
 import com.qa.util.WebCommonMethods;
 import org.openqa.selenium.By;

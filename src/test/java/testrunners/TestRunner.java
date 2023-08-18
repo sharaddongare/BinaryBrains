@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/java/Features"},
         glue = {"stepdefinitions"},
-        tags = "@Sanity",
+        tags = "@Sauce_Sanity3",
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "timeline:test-output-thread/", "html:target/cucumber", "json:target/cucumber.json"},
         stepNotifications = true
         //plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
