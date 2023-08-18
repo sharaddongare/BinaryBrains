@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.tools.picocli.CommandLine;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -32,9 +33,13 @@ public class DriverFactory {
             WebDriverManager.firefoxdriver().setup();
             tlDriver.set(new FirefoxDriver());
             logger.info("Firefox Driver Initiated");
-        } else if (browser.equalsIgnoreCase("safari")) {
+        } else if (browser.equals("edge")) {
+            WebDriverManager.edgedriver().setup();
+            tlDriver.set(new EdgeDriver());
+            logger.info("Edge Driver Initiated");
+        } else if (browser.equals("safari")) {
             tlDriver.set(new SafariDriver());
-            logger.info("Chrome Driver Initiated");
+            logger.info("Safari Driver Initiated");
         } else {
             System.out.println("Please pass the correct browser value: " + browser);
         }
@@ -48,7 +53,6 @@ public class DriverFactory {
         return getDriver();
     }
     public static WebDriver getDriver() {
-
         return tlDriver.get();
     }
 
