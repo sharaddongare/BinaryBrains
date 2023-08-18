@@ -16,7 +16,6 @@ public class DriverFactory {
     public WebDriver driver;
 
     public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
-    //public static Logger Logger= (org.slf4j.Logger) LogManager.getLogger(DriverFactory.class);
     public Logger logger= LogManager.getLogger("DriverFactory");
 
     public WebDriver init_driver(String browser) {
