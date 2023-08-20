@@ -1,8 +1,8 @@
-package stepdefinitions;
+package stepdefinitions.gui;
 
 //import org.junit.Assert;
 
-import com.pages.LoginPage;
+import com.pages.gui.LoginPage;
 import com.qa.factory.DriverFactory;
 
 import io.cucumber.java.en.Given;
@@ -12,7 +12,6 @@ import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPageSteps {

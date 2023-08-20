@@ -4,11 +4,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 ;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.tools.picocli.CommandLine;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.time.Duration;
 
 
 public class DriverFactory {
@@ -22,30 +25,43 @@ public class DriverFactory {
 
         System.out.println("browser value is: " + browser);
 
-        if (browser.equals("chrome")) {
+        if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             tlDriver.set(new ChromeDriver());
-        } else if (browser.equals("firefox")) {
+            logger.info("Chrome Driver Initiated");
+        } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             tlDriver.set(new FirefoxDriver());
+            logger.info("Firefox Driver Initiated");
         } else if (browser.equals("edge")) {
             WebDriverManager.edgedriver().setup();
             tlDriver.set(new EdgeDriver());
+            logger.info("Edge Driver Initiated");
         } else if (browser.equals("safari")) {
             tlDriver.set(new SafariDriver());
+            logger.info("Safari Driver Initiated");
         } else {
             System.out.println("Please pass the correct browser value: " + browser);
         }
 
         getDriver().manage().deleteAllCookies();
+        logger.info("All cookies Deleted");
         getDriver().manage().window().maximize();
-        logger.info("Webdriver Created");
-        logger.error("Webdriver Created");
-        logger.warn("Webdriver Created");
+        logger.info("Driver Maximized");
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        logger.info("Implicit wait applied");
         return getDriver();
-
     }
     public static WebDriver getDriver() {
         return tlDriver.get();
+    }
+
+    public void closeBrowser(){
+        try {
+            getDriver().close();
+        }
+        catch (Exception e){
+            logger.info("Issue while closing browser");
+        }
     }
 }

@@ -1,7 +1,6 @@
-package stepdefinitions;
+package stepdefinitions.gui;
 
-import com.pages.AddToCartPage;
-import com.pages.LoginSaucePage;
+import com.pages.gui.AddToCartPage;
 import com.qa.factory.DriverFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -1,4 +1,4 @@
-package stepdefinitions.API;
+package stepdefinitions.api;
 
 import java.util.List;
 import java.util.Map;
@@ -37,11 +37,9 @@ public class LoginAPISteps {
         RestAssured.baseURI = BASE_URL;
         RequestSpecification request = RestAssured.given();
         response = request.get("/BookStore/v1/Books");
-
         jsonString = response.asString();
         List<Map<String, String>> books = JsonPath.from(jsonString).get("books");
         Assert.assertTrue(books.size() > 0);
-
         bookId = books.get(0).get("isbn");
     }
 
