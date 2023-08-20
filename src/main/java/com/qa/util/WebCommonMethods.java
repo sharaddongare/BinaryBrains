@@ -23,16 +23,6 @@ public class WebCommonMethods {
         this.driver = driver;
     }
 
-    public void clickOnElement(String element) {
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
-                withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(element))).click();
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("Unable to find element: {}", e);
-        }
-    }
-
     public void clickOnElement(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -43,8 +33,8 @@ public class WebCommonMethods {
         }
     }
 
-    public void clickWebElementJSE(String webElementPath) {
-        WebElement element = driver.findElement(By.xpath(webElementPath));
+    public void clickWebElementJSE(By webElementPath) {
+        WebElement element = driver.findElement(webElementPath);
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(WAIT_TIMEOUT));
         try {
             JavascriptExecutor executor = (JavascriptExecutor) driver;
@@ -54,12 +44,12 @@ public class WebCommonMethods {
         }
     }
 
-    public void fillValueInWebElement(String webElementPath, String value) {
+    public void fillValueInWebElement(By webElementPath, String value) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(WAIT_TIMEOUT))
                 .pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(webElementPath))).clear();
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(webElementPath))).sendKeys(value);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(webElementPath)).clear();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(webElementPath)).sendKeys(value);
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException("Unable to find Webelement :{}", e);
         } catch (Exception e) {
@@ -67,9 +57,9 @@ public class WebCommonMethods {
         }
     }
 
-    public void fillValueInWebElementJSE(WebDriver driver, String webElementPath, String val) {
+    public void fillValueInWebElementJSE(By webElementPath, String val) {
         int count = WAIT_FREQUENCY;
-        WebElement element = driver.findElement(By.xpath(webElementPath));
+        WebElement element = driver.findElement(webElementPath);
         while (count <= WAIT_TIMEOUT) {
             try {
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -84,24 +74,24 @@ public class WebCommonMethods {
         }
     }
 
-    public boolean isWebElementPresent(String xpath) {
+    public boolean isWebElementPresent(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).isDisplayed();
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(element)).isDisplayed();
         } catch (Exception e) {
             logger.error("Element not found {}", e.getMessage());
             return false;
         }
     }
 
-    public void switchToWindow(String clickBtn) {
+    public void switchToWindow(By element) {
         String currentwindow = driver.getWindowHandle();
         Set<String> allWindows = driver.getWindowHandles();
         for (String childwindow : allWindows) {
             if (!childwindow.equalsIgnoreCase(currentwindow)) {
                 driver.switchTo().window(childwindow);
-                clickWebElementJSE(clickBtn);
+                clickWebElementJSE(element);
             }
         }
         driver.switchTo().window(currentwindow);
@@ -125,56 +115,61 @@ public class WebCommonMethods {
         }
     }
 
-    public void waitForVisible(String xpath) {
+    public void waitForVisible(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         } catch (Exception e) {
             logger.error("Element not found {}", e.getMessage());
         }
     }
 
-    public void waitForClickable(String xpath) {
+    public String getTextOfElementOnceVisible(By element) {
+        this.waitForVisible(element);
+        return driver.findElement(element).getText();
+    }
+
+    public void waitForClickable(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (Exception e) {
             logger.error("Element not found {}", e.getMessage());
         }
     }
 
-    public void waitForElementToDisappear(String xpath) {
+    public void waitForElementToDisappear(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
         } catch (Exception e) {
             logger.error("Element not found {}", e.getMessage());
         }
     }
 
-    public void selectOptionByText(String xpath, String text) {
+    public void selectOptionByText(By element, String text) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-            WebElement ele = driver.findElement(By.xpath(xpath));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            WebElement ele = driver.findElement(element);
             Select dropdown = new Select(ele);
             dropdown.selectByVisibleText(text);
-            wait.until(ExpectedConditions.textToBe(By.xpath(xpath), text));
+            wait.until(ExpectedConditions.textToBe(element, text));
         } catch (Exception e) {
             logger.error("Element not found {}", e.getMessage());
         }
     }
 
-    public void selectOptionByValue(String xpath, String value) {
+    public void selectOptionByValue(By element, String value) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-            WebElement ele = driver.findElement(By.xpath(xpath));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            WebElement ele = driver.findElement(element);
             Select dropdown = new Select(ele);
             dropdown.selectByValue(value);
         } catch (Exception e) {
@@ -182,12 +177,12 @@ public class WebCommonMethods {
         }
     }
 
-    public void selectOptionByIndex(String xpath, int index) {
+    public void selectOptionByIndex(By element, int index) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-            WebElement ele = driver.findElement(By.xpath(xpath));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            WebElement ele = driver.findElement(element);
             Select dropdown = new Select(ele);
             dropdown.selectByIndex(index);
         } catch (Exception e) {
@@ -195,12 +190,12 @@ public class WebCommonMethods {
         }
     }
 
-    public void check(String xpath) {
+    public void check(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-            WebElement ele = driver.findElement(By.xpath(xpath));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            WebElement ele = driver.findElement(element);
             if (ele.isSelected()) {
                 ele.click();
             }
@@ -209,12 +204,12 @@ public class WebCommonMethods {
         }
     }
 
-    public void uncheck(String xpath) {
+    public void uncheck(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-            WebElement ele = driver.findElement(By.xpath(xpath));
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            WebElement ele = driver.findElement(element);
             if (!ele.isSelected()) {
                 ele.click();
             }

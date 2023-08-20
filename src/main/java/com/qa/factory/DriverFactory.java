@@ -63,7 +63,5 @@ public class DriverFactory {
         catch (Exception e){
             logger.info("Issue while closing browser");
         }
-
-
     }
 }
