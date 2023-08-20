@@ -45,11 +45,11 @@ public class DriverFactory {
         }
 
         getDriver().manage().deleteAllCookies();
-        logger.info("All cockies Deleted");
+        logger.info("All cookies Deleted");
         getDriver().manage().window().maximize();
         logger.info("Driver Maximized");
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        logger.info("Implicit wait appllied");
+        logger.info("Implicit wait applied");
         return getDriver();
     }
     public static WebDriver getDriver() {
