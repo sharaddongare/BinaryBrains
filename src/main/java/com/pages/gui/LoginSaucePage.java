@@ -1,12 +1,13 @@
 package com.pages.gui;
 
+import com.qa.util.WebCommonMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginSaucePage {
 
     private WebDriver driver;
-
+    public WebCommonMethods webCommonMethods;
     // 1. By Locators: OR
     private By username = By.id("user-name");
     private By password = By.id("password");
@@ -15,6 +16,7 @@ public class LoginSaucePage {
     public LoginSaucePage(WebDriver driver)
     {
         this.driver = driver;
+        webCommonMethods = new WebCommonMethods(driver);
     }
 
     // 3. page actions: features(behavior) of the page the form of methods:
@@ -27,7 +29,7 @@ public class LoginSaucePage {
     }
 
     public void loginClick() {
-        driver.findElement(loginButton).click();
+        webCommonMethods.clickOnElement(loginButton);
     }
 
 }
