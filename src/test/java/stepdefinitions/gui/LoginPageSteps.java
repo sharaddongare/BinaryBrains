@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.gui;
 
 //import org.junit.Assert;
 

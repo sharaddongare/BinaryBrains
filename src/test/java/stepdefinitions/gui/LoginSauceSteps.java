@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.gui;
 
 import com.pages.gui.LoginSaucePage;
 import com.qa.factory.DriverFactory;

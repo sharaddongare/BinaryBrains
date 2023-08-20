@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.gui;
 
 import com.qa.factory.DriverFactory;
 import com.qa.util.ConfigReader;
@@ -29,7 +29,6 @@ public class ApplicationHooks {
 		String browserName = prop.getProperty("browser");
 		driverFactory = new DriverFactory();
 		driver = driverFactory.init_driver(browserName);
-		
 	}
 
 	@After(order = 0)
@@ -44,7 +43,6 @@ public class ApplicationHooks {
 			String screenshotName = scenario.getName().replaceAll(" ", "_");
 			byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(sourcePath, "image/png", screenshotName);
-
 		}
 	}
 
