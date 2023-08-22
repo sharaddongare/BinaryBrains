@@ -14,11 +14,11 @@ import java.util.Properties;
 public class ApplicationHooks {
 
 	private DriverFactory driverFactory;
-	private WebDriver driver;
+	private WebDriver driver= DriverFactory.getDriver();
 	private ConfigReader configReader;
 	Properties prop;
 
-	@Before(order = 0)
+/*	@Before(order = 0)
 	public void getProperty() {
 		configReader = new ConfigReader();
 		prop = configReader.init_prop();
@@ -29,12 +29,17 @@ public class ApplicationHooks {
 		String browserName = prop.getProperty("browser");
 		driverFactory = new DriverFactory();
 		driver = driverFactory.init_driver(browserName);
+	}*/
+
+	public String getProperty(String key){
+		return prop.getProperty(key);
 	}
 
-	@After(order = 0)
+
+/*	@After(order = 0)
 	public void quitBrowser() {
 		driver.quit();
-	}
+	}*/
 
 	@After(order = 1)
 	public void tearDown(Scenario scenario) {
