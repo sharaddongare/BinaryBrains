@@ -50,6 +50,8 @@ public class LoginTwitterPage {
 
     }
 
+    public void enterEmail
+
     public void enterPhone(String phone) {
 
         //driver.findElement(password).sendKeys(pwd);

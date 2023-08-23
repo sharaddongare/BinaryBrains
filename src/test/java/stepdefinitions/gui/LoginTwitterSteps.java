@@ -76,4 +76,7 @@ public class LoginTwitterSteps {
 
     }
 
+    @Then("User enters {string}")
+    public void userEntersValid_Email_ID() {
+    }
 }
