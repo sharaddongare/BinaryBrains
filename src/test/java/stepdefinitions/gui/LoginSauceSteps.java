@@ -31,11 +31,11 @@ public class LoginSauceSteps
     }
 
 
-    @Then("user should close the browser")
+/*    @Then("user should close the browser")
     public void userCloseBrowser() {
         LOG.info("Closed Success!");
 
-    }
+    }*/
 
 
 }

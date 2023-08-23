@@ -13,6 +13,7 @@ public class LoginSaucePage {
     private By password = By.id("password");
     private By loginButton = By.id("login-button");
 
+
     public LoginSaucePage(WebDriver driver)
     {
         this.driver = driver;
@@ -21,14 +22,19 @@ public class LoginSaucePage {
 
     // 3. page actions: features(behavior) of the page the form of methods:
     public void enterUser(String user) {
-        driver.findElement(username).sendKeys(user);
+        //driver.findElement(username).sendKeys(user);
+        webCommonMethods.fillValueInWebElement(username,user);
+
     }
 
     public void enterPass(String pwd) {
-        driver.findElement(password).sendKeys(pwd);
+
+        //driver.findElement(password).sendKeys(pwd);
+        webCommonMethods.fillValueInWebElement(password,pwd);
     }
 
     public void loginClick() {
+
         webCommonMethods.clickOnElement(loginButton);
     }
 

@@ -1,9 +1,9 @@
-@Sanity
+@MySanity
 Feature: Login page validation for sauce
 
-  @MySanity1
+  @Sauce_Sanity1
   Scenario: Sauce Login verification
-    Given User opens browser "Chrome"
+    Given User opens browser "firefox"
     When user hits URL "https://www.saucedemo.com/"
     Then user should enter valid username "standard_user" and password "secret_sauce" and click on login button
 
@@ -21,4 +21,3 @@ Feature: Login page validation for sauce
     When user should perform add_to_cart and click on cart icon
     Then user proceed with checkout operation
     Then user should close the browser
-

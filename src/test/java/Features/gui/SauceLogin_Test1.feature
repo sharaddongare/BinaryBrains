@@ -1,7 +1,7 @@
-@Sanity
+@MySanity
 Feature: Login page validation for sauce
 
-  @MySanity1
+  @Sauce_Sanity1
   Scenario: Sauce Login verification
     Given User opens browser "Chrome"
     When user hits URL "https://www.saucedemo.com/"
@@ -12,7 +12,7 @@ Feature: Login page validation for sauce
     Given user hits URL "https://www.saucedemo.com/"
     Then user should enter valid username "standard_user" and password "secret_sauce" and click on login button
     When user gets the title of the page
-    Then page title should be "Swag Labs"
+    Then page title should be "Swag Lbs"
 
   @Sauce_Sanity3
   Scenario: Sauce add to cart verification
@@ -21,4 +21,3 @@ Feature: Login page validation for sauce
     When user should perform add_to_cart and click on cart icon
     Then user proceed with checkout operation
     Then user should close the browser
-
