@@ -15,8 +15,6 @@ import org.openqa.selenium.WebDriver;
 public class BasicCommonSteps {
 
 	public WebDriver driver;
-	private static String title;
-	//private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
 	private static final Logger LOG = LogManager.getLogger(BasicCommonSteps.class);
 
 	private DriverFactory driverFactory;

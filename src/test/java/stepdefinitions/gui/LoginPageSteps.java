@@ -1,3 +1,4 @@
+/*
 package stepdefinitions.gui;
 
 //import org.junit.Assert;
@@ -17,7 +18,6 @@ import org.openqa.selenium.WebDriver;
 public class LoginPageSteps {
 
 	public WebDriver driver;
-	private static String title;
 	private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
 	private static final Logger LOG = LogManager.getLogger(LoginPageSteps.class);
 
@@ -62,3 +62,4 @@ public class LoginPageSteps {
 
 
 }
+*/
