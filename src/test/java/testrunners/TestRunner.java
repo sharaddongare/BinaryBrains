@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/java/Features"},
         glue = {"stepdefinitions"},
-        tags = "@Twitter_Pagetitle_Verify",
+        tags = "@Twitter_Login",
         plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "timeline:test-output-thread/", "html:target/cucumber", "json:target/cucumber.json"},
         stepNotifications = true
         //plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}

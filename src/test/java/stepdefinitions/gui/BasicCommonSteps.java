@@ -25,6 +25,7 @@ public class BasicCommonSteps {
 		driverFactory = new DriverFactory();
 		driver = driverFactory.init_driver(Browser);
 
+
 	}
 
 	@When("user hits URL {string}")
@@ -32,6 +33,7 @@ public class BasicCommonSteps {
 		LOG.info("User is navigating to login page");
 		DriverFactory.getDriver()
 				.get(URL);
+
 	}
 
 	@When("user should close the browser")

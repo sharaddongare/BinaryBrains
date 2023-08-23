@@ -22,7 +22,6 @@ public class LoginTwitterPage {
     private By twitterPassword= By.xpath("//input[@autocomplete=\"current-password\"]");
     private By nextButton= By.xpath("//span[contains(text(),'Next')]");
 
-    LoginTwitterPage loginTwitterPage=new LoginTwitterPage(DriverFactory.getDriver());
 
     private static String title;
 
@@ -66,10 +65,6 @@ public class LoginTwitterPage {
 
     }
 
-/*    public void loginClick() {
-
-        webCommonMethods.clickOnElement(twitterloginButton);
-    }*/
 
     public void twitterSignInButtonClick() {
 
