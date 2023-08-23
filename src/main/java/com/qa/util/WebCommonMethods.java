@@ -217,4 +217,19 @@ public class WebCommonMethods {
             logger.error("Element not found {}", e.getMessage());
         }
     }
+
+    public void waitUntilHasText(By element, String text) {
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
+                withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
+        try {
+            logger.info("Waiting for element {} text to be {}", element, text);
+            wait.until(ExpectedConditions.textToBe(element, text));
+            WebElement ele = driver.findElement(element);
+            if (!ele.isSelected()) {
+                ele.click();
+            }
+        } catch (Exception e) {
+            logger.error("Element not found {}", e.getMessage());
+        }
+    }
 }
