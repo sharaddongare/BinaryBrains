@@ -28,6 +28,7 @@ public class WebCommonMethods {
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(element)).click();
+            logger.info("Click on "+element);
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException("Unable to find element: {}", e);
         }

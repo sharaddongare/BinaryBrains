@@ -15,8 +15,6 @@ import org.openqa.selenium.WebDriver;
 public class BasicCommonSteps {
 
 	public WebDriver driver;
-	private static String title;
-	//private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
 	private static final Logger LOG = LogManager.getLogger(BasicCommonSteps.class);
 
 	private DriverFactory driverFactory;
@@ -27,6 +25,7 @@ public class BasicCommonSteps {
 		driverFactory = new DriverFactory();
 		driver = driverFactory.init_driver(Browser);
 
+
 	}
 
 	@When("user hits URL {string}")
@@ -34,6 +33,7 @@ public class BasicCommonSteps {
 		LOG.info("User is navigating to login page");
 		DriverFactory.getDriver()
 				.get(URL);
+
 	}
 
 	@When("user should close the browser")
