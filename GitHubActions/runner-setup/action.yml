@@ -1,0 +1,87 @@
+name: 'Runner Setup'
+
+description: It will set up Runner for CI and Tests
+
+inputs:
+  # Java Setup Inputs
+  java-install:
+    description: 'If you DO NOT WANT to JAVA Install please type false'
+    required: false
+    default: 'true'
+  java-version:
+    description: 'The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file'
+    default: '17'
+    required: false
+
+  distribution:
+      description: 'Java distribution. See the list of supported distributions in README file'
+      required: false
+      default: 'corretto'
+  java-package:
+      description: 'The package type (jdk, jre, jdk+fx, jre+fx)'
+      required: false
+      default: 'jdk'
+  architecture:
+      description: "The architecture of the package (defaults to the action runner's architecture)"
+      required: false
+
+  cache:
+      description: 'Name of the build platform to cache dependencies. It can be "maven", "gradle" or "sbt".'
+      required: false
+
+  # Maven Setup Inputs
+  maven-install:
+    description: 'If you DO NOT WANT to MAVEN Install please type false'
+    required: false
+    default: 'true'
+
+  maven-version:
+      description: 'Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0'
+      default: '3.6.3'
+      required: false
+
+  repositories:
+    description: 'repositories definition in json array, eg: [{"id": "id", "name": "name", "url": "url"}]'
+    required: false
+
+  # Chrome Setup Inputs
+
+  chrome-install:
+    description: 'If you DO NOT WANT to CHROME Install please type false'
+    required: false
+    default: 'true'
+
+  chrome-version:
+    description: The version of the chrome and chrome driver to install
+    required: false
+    default: 119.0.6045.105-1
+
+
+runs:
+  using: "composite"
+
+  steps:
+
+    - run: sudo apt-get update -q
+      shell: bash
+
+    - name: Set up Java
+      if: ${{ inputs.java-install == 'true' }}
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{ inputs.java-version }}
+        distribution: ${{ inputs.distribution }}
+        java-package: ${{ inputs.java-package }}
+        architecture: ${{ inputs.architecture }}
+
+    - name: Set up Maven
+      if: ${{ inputs.maven-install == 'true' && inputs.maven-version <= '3.8.8' }}
+      uses: VFDE-Solstice-TestAutomation/maven-install@v1.0
+      with:
+        maven-version: ${{ inputs.maven-version }}
+
+    - name: Set up Chrome
+      if: ${{ inputs.chrome-install == 'true' }}
+      uses: VFDE-Solstice-TestAutomation/chrome-install@v1.0
+      with:
+        version: ${{ inputs.chrome-version }}
