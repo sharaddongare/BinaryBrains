@@ -76,12 +76,12 @@ runs:
 
     - name: Set up Maven
       if: ${{ inputs.maven-install == 'true' && inputs.maven-version <= '3.8.8' }}
-      uses: VFDE-Solstice-TestAutomation/maven-install@v1.0
+      uses: sharaddongare/BinaryBrains/GitHubActions/maven-install@main
       with:
         maven-version: ${{ inputs.maven-version }}
 
     - name: Set up Chrome
       if: ${{ inputs.chrome-install == 'true' }}
-      uses: VFDE-Solstice-TestAutomation/chrome-install@v1.0
+      uses: sharaddongare/BinaryBrains/GitHubActions/chrome-install@main
       with:
         version: ${{ inputs.chrome-version }}
