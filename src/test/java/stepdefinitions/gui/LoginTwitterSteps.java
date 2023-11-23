@@ -1,6 +1,7 @@
 package stepdefinitions.gui;
 
 
+import com.gui.guiUtility.ConfigReader;
 import com.gui.guiUtility.DriverFactory;
 import com.gui.pages.LoginTwitterPage;
 import io.cucumber.java.en.And;
@@ -10,6 +11,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+
+import java.util.Base64;
 
 public class LoginTwitterSteps {
 
@@ -26,8 +29,9 @@ public class LoginTwitterSteps {
 
     @Then("user enters valid Username and Password")
     public void userEntersValidUsernameAndPassword() {
-        loginTwitterPage.enterUser("@sharaddongare");
-        loginTwitterPage.enterPass("Sharad@2023");
+        String password = new String(Base64.getDecoder().decode((ConfigReader.init_prop().getProperty("password")).getBytes()));
+        loginTwitterPage.enterUser(ConfigReader.init_prop().getProperty("username"));
+        loginTwitterPage.enterPass(password);
     }
 
     @Then("User enters valid Email ID")
@@ -60,6 +64,6 @@ public class LoginTwitterSteps {
     }
 
     @Then("User enters {string}")
-    public void userEntersValid_Email_ID() {
+    public void userEntersValid_Email_ID(String email) {
     }
 }
