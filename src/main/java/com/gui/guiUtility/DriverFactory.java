@@ -1,10 +1,8 @@
-package com.qa.factory;
+package com.gui.guiUtility;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.tools.picocli.CommandLine;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,31 +12,37 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.time.Duration;
 
 
+
+
 public class DriverFactory {
 
-    public WebDriver driver;
 
-    public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     public Logger logger= LogManager.getLogger("DriverFactory");
 
+
+    /**
+     * @param browser
+     * @return
+     */
     public WebDriver init_driver(String browser) {
 
         System.out.println("browser value is: " + browser);
 
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-            tlDriver.set(new ChromeDriver());
+            driver.set(new ChromeDriver());
             logger.info("Chrome Driver Initiated");
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            tlDriver.set(new FirefoxDriver());
+            driver.set(new FirefoxDriver());
             logger.info("Firefox Driver Initiated");
         } else if (browser.equals("edge")) {
             WebDriverManager.edgedriver().setup();
-            tlDriver.set(new EdgeDriver());
+            driver.set(new EdgeDriver());
             logger.info("Edge Driver Initiated");
         } else if (browser.equals("safari")) {
-            tlDriver.set(new SafariDriver());
+            driver.set(new SafariDriver());
             logger.info("Safari Driver Initiated");
         } else {
             System.out.println("Please pass the correct browser value: " + browser);
@@ -52,10 +56,17 @@ public class DriverFactory {
         logger.info("Implicit wait applied");
         return getDriver();
     }
+
+    /**
+     * @return
+     */
     public static WebDriver getDriver() {
-        return tlDriver.get();
+        return driver.get();
     }
 
+    /**
+     *
+     */
     public void closeBrowser(){
         try {
             getDriver().close();

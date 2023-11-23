@@ -1,4 +1,4 @@
-package com.qa.util;
+package com.gui.excelUtility;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.NumberToTextConverter;
@@ -12,6 +12,12 @@ import java.util.Map;
 
 public class ExcelReader {
 
+    /**
+     * @param excelFilePath
+     * @param sheetName
+     * @return
+     * @throws IOException
+     */
     public List<Map<String, String>> getData(String excelFilePath, String sheetName)
             throws IOException {
         Sheet sheet = getSheetByName(excelFilePath, sheetName);
@@ -22,26 +28,54 @@ public class ExcelReader {
         ExcelReader excelReader = new ExcelReader();
         System.out.println(excelReader.getData("D:\\Nilesh PP\\Softwares\\Hackthon\\New Microsoft Excel Worksheet.xlsx","Sheet1"));
     }
+
+    /**
+     * @param excelFilePath
+     * @param sheetNumber
+     * @return
+     * @throws IOException
+     */
     public List<Map<String, String>> getData(String excelFilePath, int sheetNumber)
             throws IOException {
         Sheet sheet = getSheetByIndex(excelFilePath, sheetNumber);
         return readSheet(sheet);
     }
 
+    /**
+     * @param excelFilePath
+     * @param sheetName
+     * @return
+     * @throws IOException
+     */
     private Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException {
         Sheet sheet = getWorkBook(excelFilePath).getSheet(sheetName);
         return sheet;
     }
 
+    /**
+     * @param excelFilePath
+     * @param sheetNumber
+     * @return
+     * @throws IOException
+     */
     private Sheet getSheetByIndex(String excelFilePath, int sheetNumber) throws IOException {
         Sheet sheet = getWorkBook(excelFilePath).getSheetAt(sheetNumber);
         return sheet;
     }
 
+    /**
+     * @param excelFilePath
+     * @return
+     * @throws IOException
+     */
     private Workbook getWorkBook(String excelFilePath) throws IOException {
         return WorkbookFactory.create(new File(excelFilePath));
     }
 
+    /**
+     * @param sheet
+     * @return
+     */
     private List<Map<String, String>> readSheet(Sheet sheet) {
         Row row;
         int totalRow = sheet.getPhysicalNumberOfRows();
@@ -62,6 +96,10 @@ public class ExcelReader {
         return excelRows;
     }
 
+    /**
+     * @param sheet
+     * @return
+     */
     private int getHeaderRowNumber(Sheet sheet) {
         Row row;
         int totalRow = sheet.getLastRowNum();
@@ -89,6 +127,11 @@ public class ExcelReader {
         return (-1);
     }
 
+    /**
+     * @param sheet
+     * @param rowNumber
+     * @return
+     */
     private Row getRow(Sheet sheet, int rowNumber) {
         return sheet.getRow(rowNumber);
     }

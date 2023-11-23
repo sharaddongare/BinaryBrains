@@ -1,4 +1,4 @@
-package com.qa.util;
+package com.gui.guiUtility;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,19 +10,24 @@ import org.openqa.selenium.support.ui.Wait;
 
 import java.time.Duration;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 public class WebCommonMethods {
 
     public Logger logger = LogManager.getLogger(WebCommonMethods.class);
     private static final int WAIT_TIMEOUT = 20;
     private static final int WAIT_FREQUENCY = 3;
-    private WebDriver driver;
+    private WebDriver driver= DriverFactory.getDriver();
 
+    /**
+     * @param driver
+     */
     public WebCommonMethods(WebDriver driver) {
         this.driver = driver;
     }
 
+    /**
+     * @param element
+     */
     public void clickOnElement(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -34,6 +39,9 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param webElementPath
+     */
     public void clickWebElementJSE(By webElementPath) {
         WebElement element = driver.findElement(webElementPath);
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(WAIT_TIMEOUT));
@@ -45,6 +53,10 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param webElementPath
+     * @param value
+     */
     public void fillValueInWebElement(By webElementPath, String value) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(WAIT_TIMEOUT))
                 .pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -58,6 +70,10 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param webElementPath
+     * @param val
+     */
     public void fillValueInWebElementJSE(By webElementPath, String val) {
         int count = WAIT_FREQUENCY;
         WebElement element = driver.findElement(webElementPath);
@@ -75,6 +91,10 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     * @return
+     */
     public boolean isWebElementPresent(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -86,6 +106,9 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     */
     public void switchToWindow(By element) {
         String currentwindow = driver.getWindowHandle();
         Set<String> allWindows = driver.getWindowHandles();
@@ -98,6 +121,9 @@ public class WebCommonMethods {
         driver.switchTo().window(currentwindow);
     }
 
+    /**
+     * @param message
+     */
     public void handleAlerts(String message) {
         try {
             Alert alert = driver.switchTo().alert();
@@ -116,6 +142,9 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     */
     public void waitForVisible(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -126,11 +155,18 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     * @return
+     */
     public String getTextOfElementOnceVisible(By element) {
         this.waitForVisible(element);
         return driver.findElement(element).getText();
     }
 
+    /**
+     * @param element
+     */
     public void waitForClickable(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -141,6 +177,9 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     */
     public void waitForElementToDisappear(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -151,6 +190,10 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     * @param text
+     */
     public void selectOptionByText(By element, String text) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -165,6 +208,10 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     * @param value
+     */
     public void selectOptionByValue(By element, String value) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -178,6 +225,10 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     * @param index
+     */
     public void selectOptionByIndex(By element, int index) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -191,6 +242,9 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     */
     public void check(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -205,6 +259,9 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     */
     public void uncheck(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
@@ -219,6 +276,10 @@ public class WebCommonMethods {
         }
     }
 
+    /**
+     * @param element
+     * @param text
+     */
     public void waitUntilHasText(By element, String text) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));

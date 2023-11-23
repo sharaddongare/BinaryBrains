@@ -1,12 +1,14 @@
-package com.pages.gui;
+package com.gui.pages;
 
-import com.qa.util.WebCommonMethods;
+import com.gui.guiUtility.DriverFactory;
+import com.gui.guiUtility.WebCommonMethods;
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
-    private WebDriver driver;
+    private WebDriver driver= DriverFactory.getDriver();
 
     // 1. By Locators: OR
     private By emailId = By.id("email");
@@ -15,11 +17,7 @@ public class LoginPage {
     private By forgotPwdLink = By.linkText("Forgot your password?111");
 
     public WebCommonMethods webCommonMethods;
-    // 2. Constructor of the page class:
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        webCommonMethods = new WebCommonMethods(driver);
-    }
+
 
     // 3. page actions: features(behavior) of the page the form of methods:
 
@@ -27,18 +25,30 @@ public class LoginPage {
         return driver.getTitle();
     }
 
+    /**
+     * @return
+     */
     public boolean isForgotPwdLinkExist() {
         return driver.findElement(forgotPwdLink).isDisplayed();
     }
 
+    /**
+     * @param username
+     */
     public void enterUserName(String username) {
         driver.findElement(emailId).sendKeys(username);
     }
 
+    /**
+     * @param pwd
+     */
     public void enterPassword(String pwd) {
         driver.findElement(password).sendKeys(pwd);
     }
 
+    /**
+     *
+     */
     public void clickOnLogin() {
         webCommonMethods.clickOnElement(signInButton);
     }
