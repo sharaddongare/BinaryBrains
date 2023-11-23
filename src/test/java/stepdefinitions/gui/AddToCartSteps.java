@@ -1,7 +1,8 @@
 package stepdefinitions.gui;
 
-import com.pages.gui.AddToCartPage;
-import com.qa.factory.DriverFactory;
+
+import com.gui.guiUtility.DriverFactory;
+import com.gui.pages.AddToCartPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
@@ -10,10 +11,13 @@ import org.openqa.selenium.WebDriver;
 
 public class AddToCartSteps
 {
-    public WebDriver driver;
-    private AddToCartPage addToCartPage = new AddToCartPage(DriverFactory.getDriver());
+
+    private AddToCartPage addToCartPage = new AddToCartPage();
     private static final Logger LOG = LogManager.getLogger(AddToCartSteps.class);
 
+    /**
+     *
+     */
     @When("user should perform add_to_cart and click on cart icon")
     public void user_should_perform_add_to_cart_and_click_on_cart_icon()
     {
@@ -21,6 +25,9 @@ public class AddToCartSteps
         LOG.info("Add to cart called!");
     }
 
+    /**
+     *
+     */
     @Then("user proceed with checkout operation")
     public void user_proceed_with_checkout_operation() {
         addToCartPage.cartIcon();

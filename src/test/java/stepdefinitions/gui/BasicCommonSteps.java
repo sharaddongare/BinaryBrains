@@ -1,33 +1,31 @@
 package stepdefinitions.gui;
 
-//import org.junit.Assert;
 
-import com.pages.gui.LoginPage;
-import com.qa.factory.DriverFactory;
+import com.gui.guiUtility.DriverFactory;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class BasicCommonSteps {
 
-	public WebDriver driver;
+	private WebDriver driver= DriverFactory.getDriver();
 	private static final Logger LOG = LogManager.getLogger(BasicCommonSteps.class);
+	private DriverFactory driverFactory=new DriverFactory();
 
-	private DriverFactory driverFactory;
 
-
+	/**
+	 * @param Browser
+	 */
 	@Given("User opens browser {string}")
 	public void userOpensBrowser(String Browser) {
-		driverFactory = new DriverFactory();
-		driver = driverFactory.init_driver(Browser);
-
-
+		driverFactory.init_driver(Browser);
 	}
 
+	/**
+	 * @param URL
+	 */
 	@When("user hits URL {string}")
 	public void userHitsURL(String URL) {
 		LOG.info("User is navigating to login page");
@@ -36,16 +34,20 @@ public class BasicCommonSteps {
 
 	}
 
+	/**
+	 *
+	 */
 	@When("user should close the browser")
 	public void closeBrowser() {
 		LOG.info("User is navigating to login page");
 		driver.close();
 	}
 
+	/**
+	 * @param Browser
+	 */
 	@Given("User open the browser {}")
 	public void userOpensBrowsers(String Browser) {
-
-		driverFactory = new DriverFactory();
-		driver = driverFactory.init_driver(Browser);
+		driverFactory.init_driver(Browser);
 	}
 }

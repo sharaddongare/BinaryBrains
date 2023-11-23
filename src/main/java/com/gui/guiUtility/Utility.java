@@ -1,4 +1,4 @@
-package com.qa.util;
+package com.gui.guiUtility;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -9,12 +9,20 @@ import java.util.regex.Pattern;
 
 public class Utility {
 
+    /**
+     * @param daysToAdd
+     * @return
+     */
     public String getFutureDate(long daysToAdd) {
         LocalDate locale = LocalDate.now().plusDays(daysToAdd);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         return locale.format(dateTimeFormatter);
     }
 
+    /**
+     * @param name
+     * @return
+     */
     public boolean isValidUsername(String name) {
         String regex = "^[A-Za-z]\\w{5,29}$";
         Pattern p = Pattern.compile(regex);
@@ -25,7 +33,10 @@ public class Utility {
         return m.matches();
     }
 
-    //can also be used for complex passwords
+    /**
+     * @param count
+     * @return
+     */
     public String randomSpecial(int count)
     {
         String characters = "~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
