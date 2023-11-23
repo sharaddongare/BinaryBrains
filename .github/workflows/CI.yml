@@ -6,7 +6,11 @@ jobs:
   CI-Job:
     runs-on: ubuntu-latest
 
-    steps:    
+    steps: 
+
+      - name: Runner Setup
+        uses: sharaddongare/BinaryBrains/GitHubActions/runner-setup@main
+        
       - name: Chechout Branch
         uses: actions/checkout@v2
         with:
