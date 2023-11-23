@@ -24,13 +24,14 @@ public class TwitterLandingPage {
     }
 
     /**
-     * @param post
+     * @param post - passed as an argument to enter post in web element
      */
     public void enterPost(String post) {
         webCommonMethods.fillValueInWebElement(TWITTER_PLACEHOLDER, post);
     }
 
     /**
+     * This method use to wait For Post ButtonTo Clickable
      *
      */
     public void waitForPostButtonToClickable() {
@@ -38,6 +39,7 @@ public class TwitterLandingPage {
     }
 
     /**
+     * This method use to wait For Post ButtonTo Clickable
      *
      */
     public void clickOnPostButton() {
@@ -45,7 +47,7 @@ public class TwitterLandingPage {
     }
 
     /**
-     * @param post
+     * @param post - passed as an argument to waitForPostToDisplay
      */
     public void waitForPostToDisplay(String post) {
         webCommonMethods.waitUntilHasText(By.xpath("//span[text()='" + post + "']"), post);

@@ -26,3 +26,9 @@ jobs:
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             pr-number: ${{ github.event.number }}
+
+      - name: Merge Pull Request
+        uses: sharaddongare/BinaryBrains/GitHubActions/merge-pull-request-action@featureBranch
+        with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            pr-number: ${{ github.event.number }}
