@@ -1,0 +1,27 @@
+name: 'Compile Pull Request'
+
+description: It will compile the pull request
+
+runs:
+  using: "composite"
+  steps:
+    - name: Compile
+      run: |
+        git status
+        git log --oneline -n 5
+        git remote -v
+        git pull
+        git checkout ${{github.event.pull_request.head.ref}}
+        git pull origin ${{github.event.pull_request.head.ref}}
+        git log --oneline -n 5
+        git checkout ${{ github.event.pull_request.base.ref }}
+        git pull origin ${{ github.event.pull_request.base.ref }} 
+        git log --oneline -n 5
+        git status
+        git config --global user.email "BinarBrains@vaodafone.com"
+        git config --global user.name "GitHubAction"
+        git remote -v
+        git merge ${{github.event.pull_request.head.ref}} --allow-unrelated-histories
+        git status
+        mvn clean install -Dmaven.exec.skip=true -DskipTests -Dmaven.wagon.http.ssl.insecure=true  -T 30
+      shell: bash
