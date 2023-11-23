@@ -16,5 +16,5 @@ jobs:
         with:
           ref: main          
 
-      - name: Test Step
-        run: echo "Test Step"
+      - name: Compile Project
+        run: mvn clean install -Dmaven.exec.skip=true -DskipTests -Dmaven.wagon.http.ssl.insecure=true  -T 30
