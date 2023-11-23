@@ -3,8 +3,7 @@ package stepdefinitions.api;
 import java.util.List;
 import java.util.Map;
 
-import com.pages.api.GenericAPIFunctions;
-import io.cucumber.java.en.And;
+import com.api.apiUtility.GenericAPIFunctions;
 import org.junit.Assert;
 
 import io.cucumber.java.en.Given;

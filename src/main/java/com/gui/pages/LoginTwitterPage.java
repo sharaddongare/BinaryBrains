@@ -1,14 +1,14 @@
-package com.pages.gui;
+package com.gui.pages;
 
-import com.qa.factory.DriverFactory;
-import com.qa.util.WebCommonMethods;
-import io.cucumber.java.en.When;
+import com.gui.guiUtility.DriverFactory;
+import com.gui.guiUtility.WebCommonMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginTwitterPage {
 
-    private WebDriver driver;
+    private WebDriver driver= DriverFactory.getDriver();
+
     public WebCommonMethods webCommonMethods;
 
     private By twitterloginButton = By.xpath("//span[contains(text(),'Log in')]");
@@ -28,56 +28,60 @@ public class LoginTwitterPage {
 
 
 
-    public LoginTwitterPage(WebDriver driver)
-    {
-        this.driver = driver;
-        webCommonMethods = new WebCommonMethods(driver);
-    }
-
-    // 3. page actions: features(behavior) of the page the form of methods:
+    /**
+     * @param user
+     */
     public void enterUser(String user) {
-        //driver.findElement(username).sendKeys(user);
         webCommonMethods.fillValueInWebElement(twitterUsername,user);
         webCommonMethods.clickOnElement(nextButton);
-
-
     }
 
+    /**
+     * @param email
+     */
     public void enterEmail(String email) {
-        //driver.findElement(username).sendKeys(user);
         webCommonMethods.fillValueInWebElement(twitterEmail,email);
         webCommonMethods.clickOnElement(nextButton);
 
     }
 
 
+    /**
+     * @param phone
+     */
     public void enterPhone(String phone) {
-
-        //driver.findElement(password).sendKeys(pwd);
         webCommonMethods.fillValueInWebElement(twitterPassword,phone);
         webCommonMethods.clickOnElement(nextButton);
-
     }
+
+    /**
+     * @param pwd
+     */
     public void enterPass(String pwd) {
-
-        //driver.findElement(password).sendKeys(pwd);
         webCommonMethods.fillValueInWebElement(twitterPassword,pwd);
-
-
     }
 
 
+    /**
+     *
+     */
     public void twitterSignInButtonClick() {
 
         webCommonMethods.clickOnElement(signinButton);
     }
 
 
+    /**
+     *
+     */
     public void twitterLoginButton() {
 
         webCommonMethods.clickOnElement(twitterloginButton);
     }
 
+    /**
+     * @return
+     */
     public String getLoginPageTitle() {
 
         return driver.getTitle();

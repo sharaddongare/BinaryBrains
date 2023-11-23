@@ -1,4 +1,4 @@
-package com.pages.api;
+package com.api.apiUtility;
 
 
 import io.restassured.RestAssured;
@@ -22,6 +22,9 @@ public class GenericAPIFunctions {
 
     private static final Logger logger = LogManager.getLogger(GenericAPIFunctions.class);
 
+    /**
+     * @return
+     */
     public String generateAuthorizationToken() {
         RestAssured.baseURI = BASE_URL;
         RequestSpecification request = RestAssured.given();
@@ -34,6 +37,13 @@ public class GenericAPIFunctions {
         return JsonPath.from(jsonString).get("token");
     }
 
+    /**
+     * @param username
+     * @param password
+     * @param clientId
+     * @param secrete
+     * @return
+     */
     public static String generateOAuth2Token(String username, String password, String clientId, String secrete) {
         return "Bearer " + RestAssured.given().auth().basic(username, password)
                 .formParam("client_id", clientId)

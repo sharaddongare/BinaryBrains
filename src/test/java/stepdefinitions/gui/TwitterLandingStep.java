@@ -1,15 +1,14 @@
 package stepdefinitions.gui;
 
-import com.pages.gui.LoginPage;
-import com.pages.gui.TwitterLandingPage;
-import com.qa.factory.DriverFactory;
+import com.gui.guiUtility.DriverFactory;
+import com.gui.pages.TwitterLandingPage;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class TwitterLandingStep {
 
-    private TwitterLandingPage twitterLandingPage = new TwitterLandingPage(DriverFactory.getDriver());
+    private TwitterLandingPage twitterLandingPage = new TwitterLandingPage();
     private static final Logger LOG = LogManager.getLogger(TwitterLandingPage.class);
 
     @When("When user enter a post {string}")

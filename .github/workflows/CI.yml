@@ -22,7 +22,7 @@ jobs:
         uses: sharaddongare/BinaryBrains/GitHubActions/compile-pull-request-action@featureBranch
 
       - name: Approve Pull Request
-        uses: sharaddongare/BinaryBrains/GitHubActions/test@featureBranch
+        uses: sharaddongare/BinaryBrains/GitHubActions/approve-pull-request-action@featureBranch
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             pr-number: ${{ github.event.number }}
