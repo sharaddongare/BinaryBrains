@@ -14,5 +14,11 @@ const main = async () => {
       body: "This PR is auto approved by github action",
       event: 'APPROVE'
     })
+
+  await octokit.rest.pulls.merge({
+      owner: owner,
+      repo: repo,
+      pull_number: number
+    })
 }
 main().catch(err => core.setFailed(err.message))
