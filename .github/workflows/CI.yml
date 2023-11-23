@@ -16,5 +16,11 @@ jobs:
         with:
           ref: main          
 
-      - name: Compile Project
-        run: mvn clean install -Dmaven.exec.skip=true -DskipTests -Dmaven.wagon.http.ssl.insecure=true  -T 30
+      - name: Compile Pull Request
+        uses: sharaddongare/BinaryBrains/GitHubActions/compile-pull-request-action@main
+
+      - name: Approve Pull Request
+        uses: sharaddongare/BinaryBrains/GitHubActions/approve-pull-request-action@main
+        with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            pr-number: ${{ github.event.number }}
