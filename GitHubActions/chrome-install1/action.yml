@@ -1,0 +1,37 @@
+name: Install Chrome
+description: Install Chrome and ChromeDriver
+
+inputs:
+  version:
+    description: >-
+      The version to install (exactly as in
+      https://www.ubuntuupdates.org/package/google_chrome/stable/main/base/google-chrome-stable)
+    required: false
+    default: 119.0.6045.105-1
+
+runs:
+  using: composite
+  steps:
+    - name: Install Chrome and ChromeDriver
+      shell: bash
+      run: |-
+        # Install Chrome
+        ENDPOINT='https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable'
+        echo 'Installing Chrome ${{ inputs.version }}'
+        wget "${ENDPOINT}/google-chrome-stable_${{ inputs.version }}_amd64.deb" \
+          --progress=dot:giga -O /tmp/chrome.deb
+        sudo apt-get install --allow-downgrades -y /tmp/chrome.deb
+        rm /tmp/chrome.deb
+        # Install ChromeDriver
+        ENDPOINT='https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing'
+        VERSION="$(google-chrome --version | sed -E 's/.* ([0-9]+\.[0-9]+\.[0-9]+.[0-9]+).*/\1/')"
+        echo "Installing ChromeDriver ${VERSION}"
+        echo ${RELEASE}
+        wget -P /temp/ "${ENDPOINT}/${VERSION}/linux64/chromedriver-linux64.zip" \
+        --progress=dot:giga -O /tmp/chromedriver.zip
+        
+        sudo rm -rf /opt/chromedriver
+        sudo mkdir -p /opt/chromedriver
+        sudo unzip -oj /tmp/chromedriver.zip -d /opt/chromedriver
+        sudo chmod +x /opt/chromedriver/chromedriver
+        rm /tmp/chromedriver.zip
