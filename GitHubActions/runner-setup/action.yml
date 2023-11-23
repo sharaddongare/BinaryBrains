@@ -82,6 +82,6 @@ runs:
 
     - name: Set up Chrome
       if: ${{ inputs.chrome-install == 'true' }}
-      uses: sharaddongare/BinaryBrains/GitHubActions/chrome-install@main
+      uses: sharaddongare/BinaryBrains/GitHubActions/chrome-install1@main
       with:
         version: ${{ inputs.chrome-version }}
