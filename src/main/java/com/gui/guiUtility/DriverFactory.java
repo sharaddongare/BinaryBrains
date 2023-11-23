@@ -22,7 +22,7 @@ public class DriverFactory {
 
 
     /**
-     * @param browser
+     * @param browser - passed as an argument to launch browser instance
      * @return
      */
     public WebDriver init_driver(String browser) {
@@ -65,6 +65,7 @@ public class DriverFactory {
     }
 
     /**
+     * This method used to close browser
      *
      */
     public void closeBrowser(){

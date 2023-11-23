@@ -13,8 +13,8 @@ import java.util.Map;
 public class ExcelReader {
 
     /**
-     * @param excelFilePath
-     * @param sheetName
+     * @param excelFilePath - passed as an argument to readSheet
+     * @param sheetName     - passed as an argument to readSheet
      * @return
      * @throws IOException
      */
@@ -30,8 +30,8 @@ public class ExcelReader {
     }
 
     /**
-     * @param excelFilePath
-     * @param sheetNumber
+     * @param excelFilePath - passed as an argument to get data from sheet
+     * @param sheetNumber  - passed as an argument to  get data from sheet
      * @return
      * @throws IOException
      */
@@ -42,8 +42,8 @@ public class ExcelReader {
     }
 
     /**
-     * @param excelFilePath
-     * @param sheetName
+     * @param excelFilePath - passed as an argument to get WorkBook
+     * @param sheetName - passed as an argument to get WorkBook
      * @return
      * @throws IOException
      */
@@ -53,8 +53,8 @@ public class ExcelReader {
     }
 
     /**
-     * @param excelFilePath
-     * @param sheetNumber
+     * @param excelFilePath -  passed as an argument to get WorkBook
+     * @param sheetNumber -  passed as an argument to get WorkBook
      * @return
      * @throws IOException
      */
