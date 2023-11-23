@@ -1,0 +1,10 @@
+name: 'Maven Install'
+description: 'Install a specific version of Apache Maven and add it to the PATH'
+
+inputs:
+  maven-version:
+    description: 'Version Spec of the version to use.  Examples:3.6.3'
+    default: '3.6.3'
+runs:
+  using: 'node20'
+  main: 'maven_install.js'
