@@ -23,7 +23,7 @@ public class GenericAPIFunctions {
     private static final Logger logger = LogManager.getLogger(GenericAPIFunctions.class);
 
     /**
-     * @return
+     * @return  - generate Authorization Token in string
      */
     public String generateAuthorizationToken() {
         RestAssured.baseURI = BASE_URL;
@@ -38,10 +38,10 @@ public class GenericAPIFunctions {
     }
 
     /**
-     * @param username
-     * @param password
-     * @param clientId
-     * @param secrete
+     * @param username - passed as an argument to generateOAuth2Token
+     * @param password - passed as an argument to generateOAuth2Token
+     * @param clientId - passed as an argument to generateOAuth2Token
+     * @param secrete  - passed as an argument to generateOAuth2Token
      * @return
      */
     public static String generateOAuth2Token(String username, String password, String clientId, String secrete) {
