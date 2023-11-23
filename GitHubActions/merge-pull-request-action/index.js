@@ -7,12 +7,10 @@ const main = async () => {
   const { owner, repo } = github.context.repo;
   const octokit = github.getOctokit(token)
 
-  await octokit.rest.pulls.createReview({
+  await octokit.rest.pulls.merge({
       owner: owner,
       repo: repo,
-      pull_number: number,
-      body: "This PR is auto approved by github action",
-      event: 'APPROVE'
+      pull_number: number
     })
 }
 main().catch(err => core.setFailed(err.message))

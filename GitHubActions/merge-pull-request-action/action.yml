@@ -1,0 +1,14 @@
+name: Merge Pull Request
+
+description: 'A GitHub Action for merge pull requests'
+
+inputs:
+  github-token:
+    description: 'GitHub Token'
+    required: true
+  pr-number:
+    description: 'Pull Request number'
+    required: true
+runs:
+  using: 'node20'
+  main: 'index.js'
