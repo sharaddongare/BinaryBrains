@@ -27,11 +27,17 @@ public class LoginAPISteps {
 
     private GenericAPIFunctions genericAPIFunctions = new GenericAPIFunctions();
 
+    /**
+     * This method is used for an Authorization of token
+     */
     @Given("I am an authorized user")
     public void iAmAnAuthorizedUser() {
         token = genericAPIFunctions.generateAuthorizationToken();
     }
 
+    /**
+     *This method is used to get the available list of book
+     */
     @Given("A list of books are available")
     public void listOfBooksAreAvailable() {
         RestAssured.baseURI = BASE_URL;
@@ -43,6 +49,9 @@ public class LoginAPISteps {
         bookId = books.get(0).get("isbn");
     }
 
+    /**
+     *This method is use to add the book to the reading list
+     */
     @When("I add a book to my reading list")
     public void addBookInList() {
         RestAssured.baseURI = BASE_URL;
@@ -55,11 +64,17 @@ public class LoginAPISteps {
                 .post("/BookStore/v1/Books");
     }
 
+    /**
+     * This method is Checking 201 response code
+     */
     @Then("The book is added")
     public void bookIsAdded() {
         Assert.assertEquals(201, response.getStatusCode());
     }
 
+    /**
+     * This method is used to remove the book from my reading list
+     */
     @When("I remove a book from my reading list")
     public void removeBookFromList() {
         RestAssured.baseURI = BASE_URL;
@@ -72,6 +87,9 @@ public class LoginAPISteps {
                 .delete("/BookStore/v1/Book");
     }
 
+    /**
+     * This method is Checking 204 response code
+     */
     @Then("The book is removed")
     public void bookIsRemoved() {
         Assert.assertEquals(204, response.getStatusCode());
