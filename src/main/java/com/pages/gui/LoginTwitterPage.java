@@ -50,7 +50,6 @@ public class LoginTwitterPage {
 
     }
 
-    public void enterEmail
 
     public void enterPhone(String phone) {
 
