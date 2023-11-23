@@ -9,7 +9,7 @@ public class LoginTwitterPage {
 
     private WebDriver driver= DriverFactory.getDriver();
 
-    public WebCommonMethods webCommonMethods;
+    public WebCommonMethods webCommonMethods = new WebCommonMethods();
 
     private By twitterloginButton = By.xpath("//span[contains(text(),'Log in')]");
 

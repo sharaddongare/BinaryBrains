@@ -1,4 +1,4 @@
-package com.gui.excelUtility;
+package com.generalUtility;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.NumberToTextConverter;

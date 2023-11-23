@@ -19,13 +19,6 @@ public class WebCommonMethods {
     private WebDriver driver= DriverFactory.getDriver();
 
     /**
-     * @param driver
-     */
-    public WebCommonMethods(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    /**
      * @param element
      */
     public void clickOnElement(By element) {
