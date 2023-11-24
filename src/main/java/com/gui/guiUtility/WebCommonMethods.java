@@ -16,7 +16,7 @@ public class WebCommonMethods {
     public Logger logger = LogManager.getLogger(WebCommonMethods.class);
     private static final int WAIT_TIMEOUT = 20;
     private static final int WAIT_FREQUENCY = 3;
-    private WebDriver driver= DriverFactory.getDriver();
+    private WebDriver driver = DriverFactory.getDriver();
 
     /**
      * @param element - passed as an argument to perform click operation
@@ -26,7 +26,7 @@ public class WebCommonMethods {
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(element)).click();
-            logger.info("Click on "+element);
+            logger.info("Click on " + element);
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException("Unable to find element: {}", e);
         }

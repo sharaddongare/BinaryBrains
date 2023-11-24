@@ -1,5 +1,6 @@
 package com.gui.pages;
 
+import com.gui.guiUtility.ConfigReader;
 import com.gui.guiUtility.DriverFactory;
 import com.gui.guiUtility.WebCommonMethods;
 import org.openqa.selenium.By;
@@ -11,16 +12,16 @@ public class LoginTwitterPage {
 
     public WebCommonMethods webCommonMethods = new WebCommonMethods();
 
-    private By twitterloginButton = By.xpath("//span[contains(text(),'Log in')]");
+    private By twitterloginButton = By.xpath(ConfigReader.init_prop().getProperty("twitterLoginButtonByXpath"));
 
-    private By signinButton = By.xpath("//span[contains(text(),'Sign in')]");
+    private By signinButton = By.xpath(ConfigReader.init_prop().getProperty("twitterSignInButtonByXpath"));
 
-    private By twitterEmail = By.xpath("//input[@autocomplete=\"username\"]");
+    private By twitterEmail = By.xpath(ConfigReader.init_prop().getProperty("twitterEmailByXpath"));
 
-    private By twitterUsername = By.xpath("//input[@name=\"text\"]");
+    private By twitterUsername = By.xpath(ConfigReader.init_prop().getProperty("twitterUserByXpath"));
 
-    private By twitterPassword= By.xpath("//input[@autocomplete=\"current-password\"]");
-    private By nextButton= By.xpath("//span[contains(text(),'Next')]");
+    private By twitterPassword= By.xpath(ConfigReader.init_prop().getProperty("twitterPasswordByXpath"));
+    private By nextButton= By.xpath(ConfigReader.init_prop().getProperty("twitterNextButtonByXpath"));
 
 
     private static String title;
@@ -77,8 +78,7 @@ public class LoginTwitterPage {
      *
      */
     public void twitterLoginButton() {
-
-        webCommonMethods.clickOnElement(twitterloginButton);
+        webCommonMethods.clickWebElementJSE(twitterloginButton);
     }
 
     /**
