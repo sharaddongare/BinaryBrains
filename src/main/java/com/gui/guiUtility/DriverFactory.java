@@ -54,17 +54,21 @@ public class DriverFactory {
                 WebDriverManager.chromedriver().setup();
                 driver.set(new ChromeDriver());
                 logger.info("{} Driver Initiated", browser);
+                break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 driver.set(new FirefoxDriver());
                 logger.info("{} Driver Initiated", browser);
+                break;
             case "edge":
                 WebDriverManager.edgedriver().setup();
                 driver.set(new EdgeDriver());
                 logger.info("{} Driver Initiated", browser);
+                break;
             case "safari":
                 driver.set(new SafariDriver());
                 logger.info("{} Driver Initiated", browser);
+                break;
             default:
                 logger.info("Please provide proper browser value {}", browser);
         }
@@ -81,7 +85,7 @@ public class DriverFactory {
                     logger.info("Exception while opening a remote browser {} {}", browser, e.getStackTrace());
                 }
                 logger.info("Remote chrome has been opened");
-
+                break;
             case "remote-firefox":
                 options = new FirefoxOptions();
                 try {
@@ -90,7 +94,7 @@ public class DriverFactory {
                     logger.info("Exception while opening a remote browser {} {}", browser, e.getStackTrace());
                 }
                 logger.info("Remote firefox is opened");
-
+                break;
             case "remote-edge":
                 options = new EdgeOptions();
                 try {
@@ -99,6 +103,7 @@ public class DriverFactory {
                     logger.info("Exception while opening a remote browser {} {}", browser, e.getStackTrace());
                 }
                 logger.info("Remote Edge is opened");
+                break;
             default:
                 logger.info("Please provide proper browser value {}", browser);
         }
