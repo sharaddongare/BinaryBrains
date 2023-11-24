@@ -72,8 +72,8 @@ public class LoginTwitterSteps {
      */
     @Then("page title should be {string}")
     public void page_title_should_be(String expectedTitleName) {
+        title = loginTwitterPage.getLoginPageTitle();
         Assert.assertTrue(title.contains(expectedTitleName));
-
     }
 
     /**

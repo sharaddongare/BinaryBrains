@@ -15,10 +15,10 @@ public class BasicCommonSteps {
     private DriverFactory driverFactory = new DriverFactory();
 
     /**
-     * @param Browser
+     * @param
      */
-    @Given("User opens browser {string}")
-    public void userOpensBrowser(String Browser) {
+    @Given("User opens browser")
+    public void userOpensBrowser() {
         driverFactory.init_driver();
     }
 
