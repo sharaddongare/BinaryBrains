@@ -1,7 +1,8 @@
-@Twitter_Login1
+@Twitter_Login
 Feature: Login page feature
 
   Scenario: Verify Twitter login functionality
+    Given User opens browser
     When user hits URL
     Then User clicks on Sign in button
     Then User enters 'valid_Email_ID'
