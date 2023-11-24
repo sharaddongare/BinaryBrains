@@ -25,8 +25,8 @@ public class S3FileUpload {
 
      public static void main(String[] args) throws IOException, InterruptedException {
 
-         String AWS_ACCESS_KEY="AKIA3VRUSMVU5DE5JDN7";
-         String AWS_SECRET_KEY="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";
+         String AWS_ACCESS_KEY="";
+         String AWS_SECRET_KEY="";
          String AWS_BUCKET="demo-automation-logs-reports";
          Regions AWS_REGIONS=Regions.AP_SOUTH_1;
 
