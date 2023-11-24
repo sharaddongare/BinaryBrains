@@ -1,6 +1,7 @@
 package stepdefinitions.gui;
 
 
+import com.generalUtility.EncryptDecrypt;
 import com.gui.guiUtility.ConfigReader;
 import com.gui.guiUtility.DriverFactory;
 import com.gui.pages.LoginTwitterPage;
@@ -23,7 +24,6 @@ public class LoginTwitterSteps {
 
     /**
      * This method is used perform click on sign in button
-     *
      */
     @Then("User clicks on Sign in button")
     public void userClicksOnSignInButton() {
@@ -33,18 +33,16 @@ public class LoginTwitterSteps {
 
     /**
      * This method is used to enter the user name and password
-     *
      */
     @Then("user enters valid Username and Password")
     public void userEntersValidUsernameAndPassword() {
-        String password = new String(Base64.getDecoder().decode((ConfigReader.init_prop().getProperty("password")).getBytes()));
         loginTwitterPage.enterUser(ConfigReader.init_prop().getProperty("username"));
-        loginTwitterPage.enterPass(password);
+        loginTwitterPage.enterPass(EncryptDecrypt.decryption(ConfigReader.init_prop().getProperty("password")));
+        loginTwitterPage.twitterLoginButton();
     }
 
     /**
      * This method is used to enter the emailId
-     *
      */
     @Then("User enters valid Email ID")
     public void userEntersValidEmailID() {
@@ -54,7 +52,6 @@ public class LoginTwitterSteps {
 
     /**
      * This method is used perform click on login button
-     *
      */
     @And("click on login button")
     public void clickOnSigninButton() {
@@ -63,7 +60,6 @@ public class LoginTwitterSteps {
 
     /**
      * This method is used to get the title of the page
-     *
      */
     @When("user gets the title of the page")
     public void user_gets_the_title_of_the_page() {
@@ -82,6 +78,7 @@ public class LoginTwitterSteps {
 
     /**
      * This method is used to enter the valid EmailId
+     *
      *
      */
     @Then("User enters {string}")
