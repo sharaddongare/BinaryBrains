@@ -1,4 +1,4 @@
-@Twitter_Login1
+@Twitter_Login
 Feature: Login page feature
 
   Scenario: Verify Twitter login functionality
