@@ -1,5 +1,6 @@
 package com.gui.pages;
 
+import com.gui.guiUtility.ConfigReader;
 import com.gui.guiUtility.DriverFactory;
 import com.gui.guiUtility.WebCommonMethods;
 import org.openqa.selenium.By;
@@ -10,10 +11,10 @@ public class LoginPage {
 
     private WebDriver driver= DriverFactory.getDriver();
 
-    private By emailId = By.id("email");
-    private By password = By.id("passwd");
-    private By signInButton = By.xpath("//input[@value=\"Log In\"]");
-    private By forgotPwdLink = By.linkText("Forgot your password?111");
+    private By emailId = By.id(ConfigReader.init_prop().getProperty("emailById"));
+    private By password = By.id(ConfigReader.init_prop().getProperty("passwordById"));
+    private By signInButton = By.xpath(ConfigReader.init_prop().getProperty("signInButtonByXpath"));
+    private By forgotPwdLink = By.linkText(ConfigReader.init_prop().getProperty("forgotPasswordLinkByPartLink"));
 
     public WebCommonMethods webCommonMethods;
 
