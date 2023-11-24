@@ -17,4 +17,4 @@ jobs:
           ref: main          
 
       - name: Test Execution
-        run: mvn clean install "-Dmaven.exec.skip=true" "-Dmaven.wagon.http.ssl.insecure=true" "-DskipTests"
+        run: mvn clean test "-Dmaven.wagon.http.ssl.insecure=true" "-Dcucumber.filter.tags=@Twitter_Pagetitle_Verify"
