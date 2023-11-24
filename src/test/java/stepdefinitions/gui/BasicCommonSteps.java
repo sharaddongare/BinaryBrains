@@ -1,6 +1,7 @@
 package stepdefinitions.gui;
 
 
+import com.gui.guiUtility.ConfigReader;
 import com.gui.guiUtility.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -22,13 +23,13 @@ public class BasicCommonSteps {
     }
 
     /**
-     * @param URL
+     *
      */
-    @When("user hits URL {string}")
-    public void userHitsURL(String URL) {
-        LOG.info("User is navigating to login page");
-        DriverFactory.getDriver()
-                .get(URL);
+    @When("user hits URL")
+    public void userHitsURL() {
+        String url = ConfigReader.init_prop().getProperty("appUrl");
+        LOG.info("User navigates to URL {}", url);
+        DriverFactory.getDriver().get(url);
 
     }
 

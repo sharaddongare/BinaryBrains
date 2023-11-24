@@ -2,7 +2,7 @@
 Feature: Login page feature
 
   Scenario: Verify Twitter login functionality
-    When user hits URL "https://twitter.com/"
+    When user hits URL
     Then User clicks on Sign in button
     Then User enters 'valid_Email_ID'
     Then user enters valid Username and Password
