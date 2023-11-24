@@ -17,10 +17,11 @@ public class ApplicationHooks {
 	private ConfigReader configReader;
 	Properties prop;
 
-	public String getProperty(String key){
-		return prop.getProperty(key);
+	@Before
+	public void init(){
+		DriverFactory driverFactory = new DriverFactory();
+		driverFactory.init_driver();
 	}
-
 
 	/**
 	 * @param scenario
