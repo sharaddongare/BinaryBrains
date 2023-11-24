@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 public class Utility {
 
     /**
-     * @param daysToAdd
-     * @return
+     * @param daysToAdd - passed an argument to get Future Date
+     * @return - date
      */
     public String getFutureDate(long daysToAdd) {
         LocalDate locale = LocalDate.now().plusDays(daysToAdd);
@@ -20,7 +20,7 @@ public class Utility {
     }
 
     /**
-     * @param name
+     * @param name - passed an argument to validate Username
      * @return
      */
     public boolean isValidUsername(String name) {
@@ -34,7 +34,7 @@ public class Utility {
     }
 
     /**
-     * @param count
+     * @param count - - passed an argument to generate random Special characters
      * @return
      */
     public String randomSpecial(int count)

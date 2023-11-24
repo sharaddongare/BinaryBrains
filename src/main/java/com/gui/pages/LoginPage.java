@@ -10,16 +10,12 @@ public class LoginPage {
 
     private WebDriver driver= DriverFactory.getDriver();
 
-    // 1. By Locators: OR
     private By emailId = By.id("email");
     private By password = By.id("passwd");
     private By signInButton = By.xpath("//input[@value=\"Log In\"]");
     private By forgotPwdLink = By.linkText("Forgot your password?111");
 
     public WebCommonMethods webCommonMethods;
-
-
-    // 3. page actions: features(behavior) of the page the form of methods:
 
     public String getLoginPageTitle() {
         return driver.getTitle();
@@ -33,20 +29,21 @@ public class LoginPage {
     }
 
     /**
-     * @param username
+     * @param username - passed as an argument to perform enter username operation on web element
      */
     public void enterUserName(String username) {
         driver.findElement(emailId).sendKeys(username);
     }
 
     /**
-     * @param pwd
+     * @param pwd - passed as an argument to perform enter password operation on web element
      */
     public void enterPassword(String pwd) {
         driver.findElement(password).sendKeys(pwd);
     }
 
     /**
+     * This method to perform Click operation on Login button
      *
      */
     public void clickOnLogin() {

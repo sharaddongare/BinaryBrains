@@ -29,7 +29,7 @@ public class LoginTwitterPage {
 
 
     /**
-     * @param user
+     * @param user - passed as an argument to enter username element
      */
     public void enterUser(String user) {
         webCommonMethods.fillValueInWebElement(twitterUsername,user);
@@ -37,7 +37,7 @@ public class LoginTwitterPage {
     }
 
     /**
-     * @param email
+     * @param email - passed as an argument to enter Email in web element
      */
     public void enterEmail(String email) {
         webCommonMethods.fillValueInWebElement(twitterEmail,email);
@@ -47,7 +47,7 @@ public class LoginTwitterPage {
 
 
     /**
-     * @param phone
+     * @param phone - passed as an argument to enter phone in web element
      */
     public void enterPhone(String phone) {
         webCommonMethods.fillValueInWebElement(twitterPassword,phone);
@@ -55,7 +55,7 @@ public class LoginTwitterPage {
     }
 
     /**
-     * @param pwd
+     * @param pwd - passed as an argument to enter password in web element
      */
     public void enterPass(String pwd) {
         webCommonMethods.fillValueInWebElement(twitterPassword,pwd);
@@ -63,6 +63,7 @@ public class LoginTwitterPage {
 
 
     /**
+     * This method is used to perform twitter Sign InButton Click operation
      *
      */
     public void twitterSignInButtonClick() {
@@ -72,6 +73,7 @@ public class LoginTwitterPage {
 
 
     /**
+     * This method is used to perform twitter Login Button Click operation
      *
      */
     public void twitterLoginButton() {
@@ -80,7 +82,7 @@ public class LoginTwitterPage {
     }
 
     /**
-     * @return
+     * @return - login page title
      */
     public String getLoginPageTitle() {
 

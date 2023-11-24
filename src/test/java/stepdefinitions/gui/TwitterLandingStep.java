@@ -11,6 +11,9 @@ public class TwitterLandingStep {
     private TwitterLandingPage twitterLandingPage = new TwitterLandingPage();
     private static final Logger LOG = LogManager.getLogger(TwitterLandingPage.class);
 
+    /**
+     * @param post - passed as an argument to enter a post
+     */
     @When("When user enter a post {string}")
     public void user_enters_post(String post) {
         twitterLandingPage.waitForPostPlaceholderToDisplay();

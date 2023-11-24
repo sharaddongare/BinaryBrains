@@ -132,6 +132,29 @@
                     <perCoreThreadCount>false</perCoreThreadCount>
                 </configuration>
             </plugin>
+                 <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <groups>
+                      
+
+                    </groups>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <pubScmUrl>scm:git:https://github.com/sharaddongare/javadoc.git</pubScmUrl>
+                    <scmBranch>main</scmBranch>
+                    <content>${project.build.directory}/site/apidocs</content>
+                    <skipDeletedFiles>true</skipDeletedFiles>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

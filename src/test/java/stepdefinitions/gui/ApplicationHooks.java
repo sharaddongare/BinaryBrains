@@ -17,14 +17,9 @@ public class ApplicationHooks {
 	private ConfigReader configReader;
 	Properties prop;
 
-	@Before
-	public void init(){
-		DriverFactory driverFactory = new DriverFactory();
-		driverFactory.init_driver();
-	}
 
 	/**
-	 * @param scenario
+	 * @param scenario - passed as an argument to perform tearDown operation on browser
 	 */
 	@After(order = 1)
 	public void tearDown(Scenario scenario) {

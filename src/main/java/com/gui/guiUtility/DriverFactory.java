@@ -111,13 +111,14 @@ public class DriverFactory {
 
 
     /**
-     * @return
+     * @return - method return an instance of WebDriver
      */
     public static WebDriver getDriver() {
         return driver.get();
     }
 
     /**
+     * This method used to close browser
      *
      */
     public void closeBrowser() {

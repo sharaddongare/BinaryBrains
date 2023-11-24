@@ -11,7 +11,6 @@ public class LoginSaucePage {
 
     public WebCommonMethods webCommonMethods;
 
-    // 1. By Locators: OR
     private By username = By.id("user-name");
     private By password = By.id("password");
     private By loginButton = By.id("login-button");
@@ -19,7 +18,7 @@ public class LoginSaucePage {
 
 
     /**
-     * @param user
+     * @param user - passed as an argument to perform enter username operation on web element
      */
     public void enterUser(String user) {
         webCommonMethods.fillValueInWebElement(username,user);
@@ -27,7 +26,7 @@ public class LoginSaucePage {
     }
 
     /**
-     * @param pwd
+     * @param pwd - passed as an argument to perform enter password operation on web element
      */
     public void enterPass(String pwd) {
 
@@ -35,6 +34,7 @@ public class LoginSaucePage {
     }
 
     /**
+     * This method to perform Click operation on Login button
      *
      */
     public void loginClick() {
