@@ -17,14 +17,6 @@ public class ApplicationHooks {
 	private ConfigReader configReader;
 	Properties prop;
 
-	/**
-	 * @param key - passed as an argument to get the property
-	 * @return
-	 */
-	public String getProperty(String key){
-		return prop.getProperty(key);
-	}
-
 
 	/**
 	 * @param scenario - passed as an argument to perform tearDown operation on browser
