@@ -16,7 +16,8 @@ public class AddToCartSteps
     private static final Logger LOG = LogManager.getLogger(AddToCartSteps.class);
 
     /**
-     *This method is used to perform add to cart and click on cart icon
+     * This method is used to perform add to cart and click on cart icon
+     *
      */
     @When("user should perform add_to_cart and click on cart icon")
     public void user_should_perform_add_to_cart_and_click_on_cart_icon()
