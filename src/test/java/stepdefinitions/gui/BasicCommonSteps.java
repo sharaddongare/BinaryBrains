@@ -16,7 +16,7 @@ public class BasicCommonSteps {
 
 
 	/**
-	 * @param Browser
+	 * @param Browser - passed as an argument to open a browser
 	 */
 	@Given("User opens browser {string}")
 	public void userOpensBrowser(String Browser) {
@@ -24,7 +24,7 @@ public class BasicCommonSteps {
 	}
 
 	/**
-	 * @param URL
+	 * @param URL - passed as an argument to navigate on login page
 	 */
 	@When("user hits URL {string}")
 	public void userHitsURL(String URL) {
@@ -35,6 +35,7 @@ public class BasicCommonSteps {
 	}
 
 	/**
+	 *This method is use to close the browser
 	 *
 	 */
 	@When("user should close the browser")
@@ -44,7 +45,7 @@ public class BasicCommonSteps {
 	}
 
 	/**
-	 * @param Browser
+	 * @param Browser - passed as an argument to open browser
 	 */
 	@Given("User open the browser {}")
 	public void userOpensBrowsers(String Browser) {
