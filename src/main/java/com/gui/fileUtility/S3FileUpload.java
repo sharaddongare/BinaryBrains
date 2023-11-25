@@ -27,8 +27,8 @@ public class S3FileUpload {
 
 
          System.out.println("Inside main");
-         String AWS_ACCESS_KEY="AKIA3VRUSMVU5DE5JDN7";//System.getenv("AWS_ACCESS_KEY")
-         String AWS_SECRET_KEY="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";//System.getenv("AWS_SECRET_KEY")
+         String AWS_ACCESS_KEY="";//System.getenv("AWS_ACCESS_KEY")
+         String AWS_SECRET_KEY="";//System.getenv("AWS_SECRET_KEY")
          String AWS_BUCKET="demo-automation-logs-reports";
          Regions AWS_REGIONS=Regions.AP_SOUTH_1;
 
