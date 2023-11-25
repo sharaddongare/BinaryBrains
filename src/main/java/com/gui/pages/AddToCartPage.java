@@ -16,6 +16,7 @@ public class AddToCartPage
 
 
     /**
+     * This method used to add Cart Button
      *
      */
     public void addToCartButton() {
@@ -23,6 +24,7 @@ public class AddToCartPage
     }
 
     /**
+     * This method used to add cart Icon
      *
      */
     public void cartIcon() {

@@ -19,10 +19,16 @@ jobs:
           ref: main          
 
       - name: Compile Pull Request
-        uses: sharaddongare/BinaryBrains/GitHubActions/compile-pull-request-action@featureBranch
+        uses: sharaddongare/BinaryBrains/GitHubActions/compile-pull-request-action@staging
 
       - name: Approve Pull Request
-        uses: sharaddongare/BinaryBrains/GitHubActions/approve-pull-request-action@featureBranch
+        uses: sharaddongare/BinaryBrains/GitHubActions/approve-pull-request-action@staging
+        with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            pr-number: ${{ github.event.number }}
+
+      - name: Merge Pull Request
+        uses: sharaddongare/BinaryBrains/GitHubActions/merge-pull-request-action@staging
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             pr-number: ${{ github.event.number }}

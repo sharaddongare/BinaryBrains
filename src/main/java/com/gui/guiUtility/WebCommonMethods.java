@@ -16,31 +16,24 @@ public class WebCommonMethods {
     public Logger logger = LogManager.getLogger(WebCommonMethods.class);
     private static final int WAIT_TIMEOUT = 20;
     private static final int WAIT_FREQUENCY = 3;
-    private WebDriver driver= DriverFactory.getDriver();
+    private WebDriver driver = DriverFactory.getDriver();
 
     /**
-     * @param driver
-     */
-    public WebCommonMethods(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    /**
-     * @param element
+     * @param element - passed as an argument to perform click operation
      */
     public void clickOnElement(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
                 withTimeout(Duration.ofSeconds(WAIT_TIMEOUT)).pollingEvery(Duration.ofSeconds(WAIT_FREQUENCY));
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(element)).click();
-            logger.info("Click on "+element);
+            logger.info("Click on " + element);
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException("Unable to find element: {}", e);
         }
     }
 
     /**
-     * @param webElementPath
+     * @param webElementPath - passed as an argument to perform click operation using JavascriptExecutor
      */
     public void clickWebElementJSE(By webElementPath) {
         WebElement element = driver.findElement(webElementPath);
@@ -54,7 +47,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param webElementPath
+     * @param webElementPath - passed as an argument to write value in web element
      * @param value
      */
     public void fillValueInWebElement(By webElementPath, String value) {
@@ -71,7 +64,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param webElementPath
+     * @param webElementPath - passed as an argument to write value in web element using JavascriptExecutor
      * @param val
      */
     public void fillValueInWebElementJSE(By webElementPath, String val) {
@@ -92,7 +85,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to check presence of element on web page
      * @return
      */
     public boolean isWebElementPresent(By element) {
@@ -107,7 +100,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to perform  switch To Window operation
      */
     public void switchToWindow(By element) {
         String currentwindow = driver.getWindowHandle();
@@ -122,7 +115,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param message
+     * @param message - passed as an argument to handle Alerts popup up
      */
     public void handleAlerts(String message) {
         try {
@@ -143,7 +136,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to wait until element is Visible
      */
     public void waitForVisible(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
@@ -156,7 +149,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to get text of an element once visible
      * @return
      */
     public String getTextOfElementOnceVisible(By element) {
@@ -165,7 +158,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to wait for Clickable operation
      */
     public void waitForClickable(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
@@ -178,7 +171,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to wait for element to disappear
      */
     public void waitForElementToDisappear(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
@@ -191,7 +184,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to select option by Text from dropdown
      * @param text
      */
     public void selectOptionByText(By element, String text) {
@@ -209,7 +202,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to select Option By Value from dropdown
      * @param value
      */
     public void selectOptionByValue(By element, String value) {
@@ -226,7 +219,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to select option by Index from dropdown
      * @param index
      */
     public void selectOptionByIndex(By element, int index) {
@@ -243,7 +236,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to check web element
      */
     public void check(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
@@ -260,7 +253,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to uncheck web element
      */
     public void uncheck(By element) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).
@@ -277,7 +270,7 @@ public class WebCommonMethods {
     }
 
     /**
-     * @param element
+     * @param element - passed as an argument to wait Until element has a text
      * @param text
      */
     public void waitUntilHasText(By element, String text) {

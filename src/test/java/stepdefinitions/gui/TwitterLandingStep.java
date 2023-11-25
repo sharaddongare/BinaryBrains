@@ -9,8 +9,11 @@ import org.apache.logging.log4j.Logger;
 public class TwitterLandingStep {
 
     private TwitterLandingPage twitterLandingPage = new TwitterLandingPage();
-    private static final Logger LOG = LogManager.getLogger(TwitterLandingPage.class);
+    private static final Logger LOG = LogManager.getLogger(TwitterLandingStep.class);
 
+    /**
+     * @param post - passed as an argument to enter a post
+     */
     @When("When user enter a post {string}")
     public void user_enters_post(String post) {
         twitterLandingPage.waitForPostPlaceholderToDisplay();

@@ -1,0 +1,20 @@
+name: Test Execution
+on:
+  workflow_dispatch:
+
+jobs:
+  Test-Execution-Job:
+    runs-on: ubuntu-latest
+
+    steps: 
+
+      - name: Runner Setup
+        uses: sharaddongare/BinaryBrains/GitHubActions/runner-setup@main
+        
+      - name: Chechout Branch
+        uses: actions/checkout@v3
+        with:
+          ref: main          
+
+      - name: Test Execution
+        run: mvn clean test "-Dmaven.wagon.http.ssl.insecure=true" "-Dcucumber.filter.tags=@Twitter_Pagetitle_Verify"

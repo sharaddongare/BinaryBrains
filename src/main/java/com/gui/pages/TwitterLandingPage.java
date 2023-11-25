@@ -1,5 +1,6 @@
 package com.gui.pages;
 
+import com.gui.guiUtility.ConfigReader;
 import com.gui.guiUtility.DriverFactory;
 import com.gui.guiUtility.WebCommonMethods;
 import org.openqa.selenium.By;
@@ -7,12 +8,10 @@ import org.openqa.selenium.WebDriver;
 
 public class TwitterLandingPage {
 
-    private WebDriver driver= DriverFactory.getDriver();
-    public WebCommonMethods webCommonMethods;
+    public WebCommonMethods webCommonMethods = new WebCommonMethods();
 
-
-    private By POST_BUTTON = By.cssSelector("div[data-testid='tweetButtonInline']");
-    private By TWITTER_PLACEHOLDER = By.cssSelector("div[aria-label='Tweet text']");
+    private By POST_BUTTON = By.cssSelector(ConfigReader.init_prop().getProperty("twitterPostButtonByCss"));
+    private By TWITTER_PLACEHOLDER = By.xpath(ConfigReader.init_prop().getProperty("twitterPostPlaceholderByCss"));
 
 
 
@@ -24,13 +23,14 @@ public class TwitterLandingPage {
     }
 
     /**
-     * @param post
+     * @param post - passed as an argument to enter post in web element
      */
     public void enterPost(String post) {
         webCommonMethods.fillValueInWebElement(TWITTER_PLACEHOLDER, post);
     }
 
     /**
+     * This method use to wait For Post ButtonTo Clickable
      *
      */
     public void waitForPostButtonToClickable() {
@@ -38,6 +38,7 @@ public class TwitterLandingPage {
     }
 
     /**
+     * This method use to wait For Post ButtonTo Clickable
      *
      */
     public void clickOnPostButton() {
@@ -45,9 +46,10 @@ public class TwitterLandingPage {
     }
 
     /**
-     * @param post
+     * @param post - passed as an argument to waitForPostToDisplay
      */
     public void waitForPostToDisplay(String post) {
-        webCommonMethods.waitUntilHasText(By.xpath("//span[text()='" + post + "']"), post);
+        String twit = ConfigReader.init_prop().getProperty("twitterTwitToPostByXpath");
+        webCommonMethods.waitUntilHasText(By.xpath(String.format(twit,post)), post);
     }
 }

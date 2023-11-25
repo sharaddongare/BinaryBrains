@@ -1,4 +1,4 @@
-package com.gui.excelUtility;
+package com.generalUtility;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.NumberToTextConverter;
@@ -13,8 +13,8 @@ import java.util.Map;
 public class ExcelReader {
 
     /**
-     * @param excelFilePath
-     * @param sheetName
+     * @param excelFilePath - passed as an argument to readSheet
+     * @param sheetName     - passed as an argument to readSheet
      * @return
      * @throws IOException
      */
@@ -30,8 +30,8 @@ public class ExcelReader {
     }
 
     /**
-     * @param excelFilePath
-     * @param sheetNumber
+     * @param excelFilePath - passed as an argument to get data from sheet
+     * @param sheetNumber  - passed as an argument to  get data from sheet
      * @return
      * @throws IOException
      */
@@ -42,8 +42,8 @@ public class ExcelReader {
     }
 
     /**
-     * @param excelFilePath
-     * @param sheetName
+     * @param excelFilePath - passed as an argument to get WorkBook
+     * @param sheetName - passed as an argument to get WorkBook
      * @return
      * @throws IOException
      */
@@ -53,10 +53,10 @@ public class ExcelReader {
     }
 
     /**
-     * @param excelFilePath
-     * @param sheetNumber
+     * @param excelFilePath -  passed as an argument to get WorkBook
+     * @param sheetNumber -  passed as an argument to get WorkBook
      * @return
-     * @throws IOException
+     * @throws IOException - an exception thrown while reading sheet by an Index
      */
     private Sheet getSheetByIndex(String excelFilePath, int sheetNumber) throws IOException {
         Sheet sheet = getWorkBook(excelFilePath).getSheetAt(sheetNumber);
@@ -64,16 +64,16 @@ public class ExcelReader {
     }
 
     /**
-     * @param excelFilePath
+     * @param excelFilePath - passed as an argument to get WorkBook
      * @return
-     * @throws IOException
+     * @throws IOException - an exception thrown if unable to get WorkBook
      */
     private Workbook getWorkBook(String excelFilePath) throws IOException {
         return WorkbookFactory.create(new File(excelFilePath));
     }
 
     /**
-     * @param sheet
+     * @param sheet - passed as an argument to read Sheet
      * @return
      */
     private List<Map<String, String>> readSheet(Sheet sheet) {
@@ -97,7 +97,7 @@ public class ExcelReader {
     }
 
     /**
-     * @param sheet
+     * @param sheet - passed as an get Header Row Number
      * @return
      */
     private int getHeaderRowNumber(Sheet sheet) {
@@ -128,8 +128,8 @@ public class ExcelReader {
     }
 
     /**
-     * @param sheet
-     * @param rowNumber
+     * @param sheet  - passed as an argument get Row from excel sheet
+     * @param rowNumber - passed as an argument get row Number of sheet
      * @return
      */
     private Row getRow(Sheet sheet, int rowNumber) {

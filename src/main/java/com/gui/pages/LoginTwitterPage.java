@@ -1,5 +1,6 @@
 package com.gui.pages;
 
+import com.gui.guiUtility.ConfigReader;
 import com.gui.guiUtility.DriverFactory;
 import com.gui.guiUtility.WebCommonMethods;
 import org.openqa.selenium.By;
@@ -9,18 +10,18 @@ public class LoginTwitterPage {
 
     private WebDriver driver= DriverFactory.getDriver();
 
-    public WebCommonMethods webCommonMethods;
+    public WebCommonMethods webCommonMethods = new WebCommonMethods();
 
-    private By twitterloginButton = By.xpath("//span[contains(text(),'Log in')]");
+    private By twitterloginButton = By.xpath(ConfigReader.init_prop().getProperty("twitterLoginButtonByXpath"));
 
-    private By signinButton = By.xpath("//span[contains(text(),'Sign in')]");
+    private By signinButton = By.xpath(ConfigReader.init_prop().getProperty("twitterSignInButtonByXpath"));
 
-    private By twitterEmail = By.xpath("//input[@autocomplete=\"username\"]");
+    private By twitterEmail = By.xpath(ConfigReader.init_prop().getProperty("twitterEmailByXpath"));
 
-    private By twitterUsername = By.xpath("//input[@name=\"text\"]");
+    private By twitterUsername = By.xpath(ConfigReader.init_prop().getProperty("twitterUserByXpath"));
 
-    private By twitterPassword= By.xpath("//input[@autocomplete=\"current-password\"]");
-    private By nextButton= By.xpath("//span[contains(text(),'Next')]");
+    private By twitterPassword= By.xpath(ConfigReader.init_prop().getProperty("twitterPasswordByXpath"));
+    private By nextButton= By.xpath(ConfigReader.init_prop().getProperty("twitterNextButtonByXpath"));
 
 
     private static String title;
@@ -29,7 +30,7 @@ public class LoginTwitterPage {
 
 
     /**
-     * @param user
+     * @param user - passed as an argument to enter username element
      */
     public void enterUser(String user) {
         webCommonMethods.fillValueInWebElement(twitterUsername,user);
@@ -37,7 +38,7 @@ public class LoginTwitterPage {
     }
 
     /**
-     * @param email
+     * @param email - passed as an argument to enter Email in web element
      */
     public void enterEmail(String email) {
         webCommonMethods.fillValueInWebElement(twitterEmail,email);
@@ -47,7 +48,7 @@ public class LoginTwitterPage {
 
 
     /**
-     * @param phone
+     * @param phone - passed as an argument to enter phone in web element
      */
     public void enterPhone(String phone) {
         webCommonMethods.fillValueInWebElement(twitterPassword,phone);
@@ -55,7 +56,7 @@ public class LoginTwitterPage {
     }
 
     /**
-     * @param pwd
+     * @param pwd - passed as an argument to enter password in web element
      */
     public void enterPass(String pwd) {
         webCommonMethods.fillValueInWebElement(twitterPassword,pwd);
@@ -63,6 +64,7 @@ public class LoginTwitterPage {
 
 
     /**
+     * This method is used to perform twitter Sign InButton Click operation
      *
      */
     public void twitterSignInButtonClick() {
@@ -72,15 +74,15 @@ public class LoginTwitterPage {
 
 
     /**
+     * This method is used to perform twitter Login Button Click operation
      *
      */
     public void twitterLoginButton() {
-
-        webCommonMethods.clickOnElement(twitterloginButton);
+        webCommonMethods.clickWebElementJSE(twitterloginButton);
     }
 
     /**
-     * @return
+     * @return - login page title
      */
     public String getLoginPageTitle() {
 
