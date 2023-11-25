@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
 
     private WebDriver driver= DriverFactory.getDriver();
-
     private By emailId = By.id(ConfigReader.init_prop().getProperty("emailById"));
     private By password = By.id(ConfigReader.init_prop().getProperty("passwordById"));
     private By signInButton = By.xpath(ConfigReader.init_prop().getProperty("signInButtonByXpath"));
