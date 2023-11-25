@@ -25,8 +25,10 @@ public class S3FileUpload {
 
      public static void main(String[] args) throws IOException, InterruptedException {
 
-         String AWS_ACCESS_KEY="";
-         String AWS_SECRET_KEY="";
+
+         System.out.println("Inside main");
+         String AWS_ACCESS_KEY="AKIA3VRUSMVU5DE5JDN7";//System.getenv("AWS_ACCESS_KEY")
+         String AWS_SECRET_KEY="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";//System.getenv("AWS_SECRET_KEY")
          String AWS_BUCKET="demo-automation-logs-reports";
          Regions AWS_REGIONS=Regions.AP_SOUTH_1;
 
@@ -55,11 +57,11 @@ public class S3FileUpload {
              e.printStackTrace();
          }
 
-         LocalDate date = LocalDate.now();
+/*         LocalDate date = LocalDate.now();
          String todayDate=date.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-         String logFileName="application-"+todayDate+".log";
+         String logFileName="target/application-123.log";*/
          try {
-             FileUtils.copyDirectory(new File(logFileName), new File(zipPath));
+             FileUtils.copyDirectory(new File("target/logs"), new File(zipPath));
          } catch (IOException e) {
              e.printStackTrace();
          }
@@ -76,9 +78,8 @@ public class S3FileUpload {
 
          }
 
-    }
 
-
+     }
 
     }
 

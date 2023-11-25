@@ -129,7 +129,7 @@
             <executions>
                 <execution>
                     <id>ReportUploadS3</id>
-                    <phase>test</phase>
+                    <phase>verify</phase>
                     <goals>
                         <goal>exec</goal>
                     </goals>
@@ -137,9 +137,9 @@
                         <executable>java</executable>
                         <longClasspath>true</longClasspath>
                         <arguments>
-                            <argument>--classpath</argument>
+                            <argument>-classpath</argument>
                             <classpath/>
-                            <argument>fileUtility.S3FileUpload</argument>
+                            <argument>com.gui.fileUtility.S3FileUpload</argument>
                         </arguments>
                         <skip>false</skip>
                     </configuration>
