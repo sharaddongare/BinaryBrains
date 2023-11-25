@@ -9,19 +9,19 @@ import org.openqa.selenium.WebDriver;
 public class LoginTwitterPage {
 
     private WebDriver driver= DriverFactory.getDriver();
-
     public WebCommonMethods webCommonMethods = new WebCommonMethods();
 
-    private By twitterloginButton = By.xpath(ConfigReader.init_prop().getProperty("twitterLoginButtonByXpath"));
+    private By nextButton= By.xpath(ConfigReader.init_prop().getProperty("twitterNextButtonByXpath"));
 
     private By signinButton = By.xpath(ConfigReader.init_prop().getProperty("twitterSignInButtonByXpath"));
 
     private By twitterEmail = By.xpath(ConfigReader.init_prop().getProperty("twitterEmailByXpath"));
 
-    private By twitterUsername = By.xpath(ConfigReader.init_prop().getProperty("twitterUserByXpath"));
 
+    private By twitterUsername = By.xpath(ConfigReader.init_prop().getProperty("twitterUserByXpath"));
     private By twitterPassword= By.xpath(ConfigReader.init_prop().getProperty("twitterPasswordByXpath"));
-    private By nextButton= By.xpath(ConfigReader.init_prop().getProperty("twitterNextButtonByXpath"));
+    private By twitterloginButton = By.xpath(ConfigReader.init_prop().getProperty("twitterLoginButtonByXpath"));
+
 
 
     private static String title;
