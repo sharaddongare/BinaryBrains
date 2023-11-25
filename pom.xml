@@ -129,7 +129,7 @@
             <executions>
                 <execution>
                     <id>ReportUploadS3</id>
-                    <phase>verify</phase>
+                    <phase>test</phase>
                     <goals>
                         <goal>exec</goal>
                     </goals>
