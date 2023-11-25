@@ -37,7 +37,7 @@ public class EmailAutomatePage
      * This method is used to perform twitter Login Button Click operation
      *
      */
-    public void twitterLoginButton() {
+    public void goDaddyLoginButton() {
         webCommonMethods.clickWebElementJSE(goDaddyloginButton);
     }
 

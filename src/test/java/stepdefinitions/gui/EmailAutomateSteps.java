@@ -18,7 +18,7 @@ public class EmailAutomateSteps {
     public void userEntersValidUsernameAndPassword() {
         emailAutomatePage.enterUser(ConfigReader.init_prop().getProperty("username"));
         emailAutomatePage.enterPass(ConfigReader.init_prop().getProperty("password"));
-        emailAutomatePage.twitterLoginButton();
+        emailAutomatePage.goDaddyLoginButton();
     }
 
 }
