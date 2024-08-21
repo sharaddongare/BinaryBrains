@@ -26,7 +26,7 @@ public class S3FileUpload {
      public static void main(String[] args) throws IOException, InterruptedException {
 
 
-         System.out.println("Inside main");
+        /* System.out.println("Inside main");
          String AWS_ACCESS_KEY=System.getenv("AWS_ACCESS_KEY");
          String AWS_SECRET_KEY=System.getenv("AWS_SECRET_KEY");
          String AWS_BUCKET="demo-automation-logs-reports";
@@ -57,9 +57,9 @@ public class S3FileUpload {
              e.printStackTrace();
          }
 
-/*         LocalDate date = LocalDate.now();
+*//*         LocalDate date = LocalDate.now();
          String todayDate=date.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-         String logFileName="target/application-123.log";*/
+         String logFileName="target/application-123.log";*//*
          try {
              FileUtils.copyDirectory(new File("target/logs"), new File(zipPath));
          } catch (IOException e) {
@@ -76,7 +76,7 @@ public class S3FileUpload {
              String filePath="target/Report.zip";
              s3client.putObject("demo-automation-logs-reports",fileName,new File(filePath));
 
-         }
+         }*/
 
 
      }
