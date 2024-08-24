@@ -22,16 +22,14 @@ public class BasicCommonSteps {
         driverFactory.init_driver();
     }
 
-    /**
-     *
-     */
+
     @When("user hits URL")
     public void userHitsURL() {
-        String url = ConfigReader.init_prop().getProperty("appUrl");
+        String url = ConfigReader.init_prop().getProperty("ultimateAppUrl");
         LOG.info("User navigates to URL {}", url);
         DriverFactory.getDriver().get(url);
-
     }
+
 
 
     /**

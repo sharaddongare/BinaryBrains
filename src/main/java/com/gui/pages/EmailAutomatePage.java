@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 public class EmailAutomatePage
 {
 
-
     private WebDriver driver= DriverFactory.getDriver();
     public WebCommonMethods webCommonMethods = new WebCommonMethods();
 
@@ -30,6 +29,7 @@ public class EmailAutomatePage
      * @param pwd - passed as an argument to enter password in web element
      */
     public void enterPass(String pwd) {
+
         webCommonMethods.fillValueInWebElement(goDaddyPassword,pwd);
     }
 

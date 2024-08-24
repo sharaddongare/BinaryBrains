@@ -2,6 +2,7 @@ package stepdefinitions.gui;
 
 import com.gui.guiUtility.ConfigReader;
 import com.gui.pages.EmailAutomatePage;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,5 +21,8 @@ public class EmailAutomateSteps {
         emailAutomatePage.enterPass(ConfigReader.init_prop().getProperty("password"));
         emailAutomatePage.goDaddyLoginButton();
     }
+
+
+
 
 }
