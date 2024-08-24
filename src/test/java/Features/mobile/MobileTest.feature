@@ -4,7 +4,11 @@ Feature: Test Mobile
   Scenario: Verify login page
     #Given set capabilities for Souce lab
     #Given test SouceLab
-    Given TestingoFSouceLab
+    Given setup the MobileDriver
+    Then Open LinkedIn App
+    Then Verify somethoing
+    Then Close the App
+
 
 
     #Then Check for mail entries

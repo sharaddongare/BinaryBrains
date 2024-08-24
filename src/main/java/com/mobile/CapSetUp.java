@@ -2,6 +2,8 @@ package com.mobile;
 
 import com.gui.guiUtility.ConfigReader;
 import io.appium.java_client.android.AndroidDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.MutableCapabilities;
 
 import java.net.MalformedURLException;
@@ -14,6 +16,7 @@ public class CapSetUp {
     private String soucelabkey = ConfigReader.init_prop().getProperty("soucelabkey");
     private String souceLaburl = ConfigReader.init_prop().getProperty("soucelabUrl");
     private String platform = ConfigReader.init_prop().getProperty("souceplatformname");
+    public Logger logger = LogManager.getLogger("Capabilities setup");
 
     private static AndroidDriver mobDriver;
     //String jobStatus = "";
@@ -48,6 +51,8 @@ public class CapSetUp {
         URL url = new URL(souceLaburl);
         mobDriver = new AndroidDriver(url, caps);
         Thread.sleep(5000);
+        System.out.println("Capabilities set successfully");
+        logger.info("Capabilities set successfully");
         return mobDriver;
     }
 
@@ -60,6 +65,8 @@ public class CapSetUp {
     public void quitMobDriver(){
         getMobDriver().executeScript("sauce:job-result=" + "passed");
         getMobDriver().quit();
+        System.out.println("Mobile driver closed successfully");
+        logger.info("Mobile driver closed successfully");
     }
 
 }
