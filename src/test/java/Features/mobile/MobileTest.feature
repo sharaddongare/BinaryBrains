@@ -3,7 +3,8 @@ Feature: Test Mobile
 
   Scenario: Verify login page
     #Given set capabilities for Souce lab
-    Given test SouceLab
+    #Given test SouceLab
+    Given TestingoFSouceLab
 
 
     #Then Check for mail entries
