@@ -33,6 +33,7 @@ public class LoginAPISteps {
     @Given("I am an authorized user")
     public void iAmAnAuthorizedUser() {
         token = genericAPIFunctions.generateAuthorizationToken();
+        System.out.println("Token :"+token);
     }
 
     /**
@@ -44,9 +45,11 @@ public class LoginAPISteps {
         RequestSpecification request = RestAssured.given();
         response = request.get("/BookStore/v1/Books");
         jsonString = response.asString();
+        System.out.println(response.prettyPrint());
         List<Map<String, String>> books = JsonPath.from(jsonString).get("books");
         Assert.assertTrue(books.size() > 0);
         bookId = books.get(0).get("isbn");
+        System.out.println("*** Book Id is "+bookId);
     }
 
     /**
@@ -69,6 +72,7 @@ public class LoginAPISteps {
      */
     @Then("The book is added")
     public void bookIsAdded() {
+        System.out.println("Response code is "+ response.getStatusCode());
         Assert.assertEquals(201, response.getStatusCode());
     }
 
@@ -85,6 +89,7 @@ public class LoginAPISteps {
 
         response = request.body("{ \"isbn\": \"" + bookId + "\", \"userId\": \"" + USER_ID + "\"}")
                 .delete("/BookStore/v1/Book");
+        System.out.println("Response for remove book "+response);
     }
 
     /**

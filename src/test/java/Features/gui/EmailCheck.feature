@@ -7,6 +7,7 @@ Feature: Login page feature
     Then user enters emaild 'team11@labcartscientific.com' and Password '5y7aq46C#'
     Then user click on sign in button
     Then User clicks on Inbox
+
     #Then Check for mail entries
 
 #    Then User clicks on Sign in button
