@@ -72,6 +72,25 @@ public class SouceTest {
         //CapSetUp.getMobDriver().findElement(By.name(""));*/
 
     }
+    @Then("Open herokup App On Web")
+    public void openherokupApp() throws InterruptedException {
+        CapSetUp.getMobDriver().get("http://thinking-tester-contact-list.herokuapp.com/");
+
+        CapSetUp.getMobDriver().findElement(By.id("email")).click();
+        CapSetUp.getMobDriver().findElement(By.id("email")).sendKeys("pirangutekiran@gmail.com");
+        System.out.println("User Name Entered Successfully");
+        logger.info("User Name Entered Successfully");
+
+        CapSetUp.getMobDriver().findElement(By.id("password")).click();
+        CapSetUp.getMobDriver().findElement(By.id("password")).sendKeys("kiran123");
+        System.out.println("User Name Entered Successfully");
+        logger.info("User Name Entered Successfully");
+
+        CapSetUp.getMobDriver().findElement(By.id("submit")).click();
+        logger.info("Clicked On Login Button");
+
+
+    }
 
     @Then("Verify somethoing")
     public void verifySomethoing() {

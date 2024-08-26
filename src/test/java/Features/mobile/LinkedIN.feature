@@ -1,16 +1,17 @@
-
+@MobileTest
 Feature: Test Mobile
 
   Scenario: Verify login page
     #Given set capabilities for Souce lab
     #Given test SouceLab
     Given TestingoFSouceLab_LD
-
-  @MobileTestKp
+#    Then Open herokup App On Web
+  @MobileTest
   Scenario: Verify LD App page
     #Given set capabilities for Souce lab
     #Given test SouceLab
     Given TestingoFSouceLab_LD_LocalDevice
+
 
     #Then Check for mail entries
 

@@ -1,0 +1,11 @@
+stepdefinitions\gui\EmailAutomateSteps.class
+stepdefinitions\gui\ApplicationHooks.class
+stepdefinitions\mobile\SouceTest.class
+stepdefinitions\gui\AddToCartSteps.class
+testRunners\TestRunner.class
+stepdefinitions\gui\BasicCommonSteps.class
+stepdefinitions\gui\LoginTwitterSteps.class
+stepdefinitions\gui\TwitterLandingStep.class
+stepdefinitions\api\LoginAPISteps.class
+stepdefinitions\api\BasicApiSteps.class
+stepdefinitions\gui\EmailSteps.class

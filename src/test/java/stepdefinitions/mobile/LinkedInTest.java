@@ -1,8 +1,12 @@
 package stepdefinitions.mobile;
 
+import com.mobile.CapSetUp;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.cucumber.java.en.Given;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -11,6 +15,7 @@ import java.net.URL;
 import java.util.Date;
 
 public class LinkedInTest {
+    public Logger logger = LogManager.getLogger("Capabilities setup");
     @Given("TestingoFSouceLab_LD")
     public void testingofsoucelab_LD() throws MalformedURLException, InterruptedException {
 
@@ -36,6 +41,45 @@ public class LinkedInTest {
         URL url = new URL("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub");
         AndroidDriver driver = new AndroidDriver(url, caps);
 
+        driver.get("http://thinking-tester-contact-list.herokuapp.com/");
+
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).sendKeys("pirangutekiran@gmail.com");
+        System.out.println("User Name Entered Successfully");
+        logger.info("User Name Entered Successfully");
+
+        driver.findElement(By.id("password")).click();
+        driver.findElement(By.id("password")).sendKeys("kiran123");
+        System.out.println("User Name Entered Successfully");
+        logger.info("User Name Entered Successfully");
+
+        Thread.sleep(5000);
+        driver.findElement(By.id("submit")).click();
+        logger.info("Clicked On Submit Button");
+
+        //add contact
+        driver.findElement(By.id("add-contact")).click();
+        logger.info("Clicked On Asdd Contact Button");
+        //first name
+        driver.findElement(By.id("firstName")).click();
+        driver.findElement(By.id("firstName")).sendKeys("Ashish");
+        System.out.println("First Name Entered Successfully");
+        logger.info("First Name Entered Successfully");
+
+        //last name
+        driver.findElement(By.id("lastName")).click();
+        driver.findElement(By.id("lastName")).sendKeys("Pirangute");
+        System.out.println("Last Name Entered Successfully");
+        logger.info("last Name Entered Successfully");
+
+        driver.findElement(By.id("birthdate")).click();
+        driver.findElement(By.id("birthdate")).sendKeys("1991-07-20");
+        System.out.println("BirthDate  Entered Successfully");
+        logger.info("BirthDate  Entered Successfully");
+
+        driver.findElement(By.id("submit")).click();
+        logger.info("Clicked On Submit Button");
+
 // replace with commands and assertions
         Thread.sleep(5000);
         String jobStatus = "passed"; // or "failed"
@@ -43,7 +87,6 @@ public class LinkedInTest {
 // end the session
         driver.executeScript("sauce:job-result=" + jobStatus);
         driver.quit();
-
 
     }
 
@@ -58,16 +101,64 @@ public class LinkedInTest {
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "OnePlus");//Medium Phone API 35
         caps.setCapability(MobileCapabilityType.UDID, "12c7bb2c");//
-//      caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");//for chrome
+      caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");//for chrome
         //To open native Mobile App from local Device we require appPkg and app Activity
-        caps.setCapability("appPackage", "com.linkedin.android");
-		caps.setCapability("appActivity", "com.linkedin.android.authenticator.LaunchActivity");
+//        caps.setCapability("appPackage", "com.linkedin.android");
+//		caps.setCapability("appActivity", "com.linkedin.android.authenticator.LaunchActivity");
 
 // Start the session
         URL url = new URL("http://127.0.0.1:4723/");
         AndroidDriver driver = new AndroidDriver(url, caps);
         Thread.sleep(5000);
 
+        driver.get("http://thinking-tester-contact-list.herokuapp.com/");
+
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).sendKeys("pirangutekiran@gmail.com");
+        System.out.println("User Name Entered Successfully");
+        logger.info("User Name Entered Successfully");
+
+        driver.findElement(By.id("password")).click();
+        driver.findElement(By.id("password")).sendKeys("kiran123");
+        System.out.println("User Name Entered Successfully");
+        logger.info("User Name Entered Successfully");
+
+        Thread.sleep(5000);
+//        driver.executeScript("mobile: hideKeyboard");
+//        driver.findElement(By.xpath("//button[@id='submit']")).click();
+//        driver.findElement(By.xpath("//button[contains(text(),'Submit')]")).click();
+        logger.info("Clicked On Submit Button");
+
+        //add contact
+        driver.findElement(By.id("add-contact")).click();
+        logger.info("Clicked On Asdd Contact Button");
+        //first name
+        driver.findElement(By.id("firstName")).click();
+        driver.findElement(By.id("firstName")).sendKeys("Ashish");
+        System.out.println("First Name Entered Successfully");
+        logger.info("First Name Entered Successfully");
+
+        //last name
+        driver.findElement(By.id("lastName")).click();
+        driver.findElement(By.id("lastName")).sendKeys("Pirangute");
+        System.out.println("Last Name Entered Successfully");
+        logger.info("last Name Entered Successfully");
+
+        driver.findElement(By.id("birthdate")).click();
+        driver.findElement(By.id("birthdate")).sendKeys("1991-07-20");
+        System.out.println("BirthDate  Entered Successfully");
+        logger.info("BirthDate  Entered Successfully");
+
+        driver.findElement(By.id("submit")).click();
+        logger.info("Clicked On Submit Button");
+
+// replace with commands and assertions
+        Thread.sleep(5000);
+        String jobStatus = "passed"; // or "failed"
+
+// end the session
+        driver.executeScript("sauce:job-result=" + jobStatus);
+        driver.quit();
 
     }
 }
