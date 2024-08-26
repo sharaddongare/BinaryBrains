@@ -2,11 +2,14 @@ package stepdefinitions.gui;
 
 import com.gui.guiUtility.ConfigReader;
 import com.gui.guiUtility.DriverFactory;
-import com.gui.pages.EmailAutomatePage;
 import com.gui.pages.UltimateQAPage;
 import io.cucumber.java.en.Then;
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import io.restassured.http.ContentType;
 
 public class UltimateQASteps {
 
@@ -36,4 +39,22 @@ public class UltimateQASteps {
         ultimatePage.ultimateLoginButton();
         System.out.println("Done");
     }
+
+    @Then("User should use get method")
+    public void user_should_use_get_method() {
+
+        System.out.println("Push information to FB");
+        String pageId = "368395739697931";
+        String accessToken = "EAA1i9quZBm3oBO213xykyAb9hfmWKLu1bY9gly3hzi7ey0PJ4wbAPifuJVqrZBpZCYZCmkq8jiFm0yDHtZC5KXCGHk50R0ZCOCxQjTZAWfpVhKJ4Qa2keeiEZCvzRspAQWdcXiKuMWQiJknVs7O6CNG8wAuVZApk0dkKqmvVdaIBnEPLhckQH4SzGrbREE5xQeBJRTu42U3X0kb1fiVq4JwZDZD";
+        String message = "Hey Rushi -1";
+
+        Response response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body("{\"message\":\"" + message + "\", \"access_token\":\"" + accessToken + "\"}")
+                .post("https://graph.facebook.com/v20.0/" + pageId + "/feed");
+
+        System.out.println("Response: " + response.asString());
+
+    }
+
 }
