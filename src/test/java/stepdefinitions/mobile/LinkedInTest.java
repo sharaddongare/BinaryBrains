@@ -1,8 +1,10 @@
 package stepdefinitions.mobile;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -41,6 +43,30 @@ public class LinkedInTest {
 // end the session
         driver.executeScript("sauce:job-result=" + jobStatus);
         driver.quit();
+
+
+    }
+
+    @Given("TestingoFSouceLab_LD_LocalDevice")
+    public void testingofsoucelab_LD_LocalDevice() throws MalformedURLException, InterruptedException {
+
+        System.out.println("********* I am here");
+
+        DesiredCapabilities caps= new DesiredCapabilities();
+        caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+        caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "OnePlus");//Medium Phone API 35
+        caps.setCapability(MobileCapabilityType.UDID, "12c7bb2c");//
+//      caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");//for chrome
+        //To open native Mobile App from local Device we require appPkg and app Activity
+        caps.setCapability("appPackage", "com.linkedin.android");
+		caps.setCapability("appActivity", "com.linkedin.android.authenticator.LaunchActivity");
+
+// Start the session
+        URL url = new URL("http://127.0.0.1:4723/");
+        AndroidDriver driver = new AndroidDriver(url, caps);
+        Thread.sleep(5000);
 
 
     }
