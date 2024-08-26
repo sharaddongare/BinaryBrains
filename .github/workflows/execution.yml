@@ -18,3 +18,8 @@ jobs:
 
       - name: Test Execution
         run: mvn clean install "-Dmaven.exec.skip=true" "-DskipTests" "-Dmaven.wagon.http.ssl.insecure=true" -T 30
+
+      - uses: actions/upload-artifact@v4
+        with:
+           name: 'Report Folder'
+           path: target
