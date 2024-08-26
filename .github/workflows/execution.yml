@@ -2,6 +2,11 @@ name: Test Execution
 on:
   workflow_dispatch:
 
+    inputs:
+      cucumberTag:
+        description: 'Please provide your cucumber tag to execute test case/cases'
+        required: true
+
 jobs:
   Test-Execution-Job:
     runs-on: ubuntu-latest
@@ -17,4 +22,9 @@ jobs:
           ref: main          
 
       - name: Test Execution
-        run: mvn clean install "-Dmaven.exec.skip=true" "-DskipTests" "-Dmaven.wagon.http.ssl.insecure=true" -T 30
+        run: mvn clean test "-Dmaven.wagon.http.ssl.insecure=true" "-Dcucumber.filter.tags=${{ inputs.cucumberTag }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+           name: 'Report Folder'
+           path: target
