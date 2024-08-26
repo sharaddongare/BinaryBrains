@@ -1,4 +1,4 @@
-@MobileTestKp
+
 Feature: Test Mobile
 
   Scenario: Verify login page
@@ -6,6 +6,11 @@ Feature: Test Mobile
     #Given test SouceLab
     Given TestingoFSouceLab_LD
 
+  @MobileTestKp
+  Scenario: Verify LD App page
+    #Given set capabilities for Souce lab
+    #Given test SouceLab
+    Given TestingoFSouceLab_LD_LocalDevice
 
     #Then Check for mail entries
 
