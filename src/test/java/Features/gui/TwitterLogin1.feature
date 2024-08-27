@@ -1,4 +1,4 @@
-@lastcheck1
+@lastcheck12
 Feature: Login page feature
 
   Scenario: Verify Twitter login functionality
