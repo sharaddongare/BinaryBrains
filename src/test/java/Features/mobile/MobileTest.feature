@@ -1,15 +1,24 @@
-@MobileTest
+@MobileTest1
 Feature: Test Mobile
 
   Scenario: Verify login page
-    #Given set capabilities for Souce lab
-    #Given test SouceLab
-    Given setup the MobileDriver
+    Given setup the MobileDriver Virtual
+    Given setup the MobileDriver_LocalDevice
     Then Open LinkedIn App
     Then Verify somethoing
     Then Close the App
 
 
+  Scenario: Verify login page
+    #Given set capabilities for Souce lab
+    #Given test SouceLab
+    Given TestingoFSouceLab_LD
+
+  @MobileTestKp
+  Scenario: Verify LD App page
+    #Given set capabilities for Souce lab
+    #Given test SouceLab
+    Given TestingoFSouceLab_LD_LocalDevice
 
     #Then Check for mail entries
 
