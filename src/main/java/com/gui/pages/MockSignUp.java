@@ -33,7 +33,8 @@ public class MockSignUp {
      webCommonMethods.fillValueInWebElement(MockPass,"Sharad@2020");
      webCommonMethods.fillValueInWebElement(MockEmail,"Sharad.dongare@voda");
 
-     webCommonMethods.clickOnElement(mockSubmitButton);
+     //webCommonMethods.clickOnElement(mockSubmitButton);
+     webCommonMethods.clickWebElementJSE(mockSubmitButton);
 
  }
 
