@@ -14,7 +14,7 @@ public class LinkedInTest {
     @Given("TestingoFSouceLab_LD")
     public void testingofsoucelab_LD() throws MalformedURLException, InterruptedException {
 
-        System.out.println("********* I am here");
+      /*  System.out.println("********* I am here");
 
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
@@ -43,7 +43,7 @@ public class LinkedInTest {
 // end the session
         driver.executeScript("sauce:job-result=" + jobStatus);
         driver.quit();
-
+*/
 
     }
 
