@@ -3,6 +3,7 @@ Feature: Login page feature
 
   Scenario: Verify Twitter login functionality
     Given User opens browser
+    When user hits URL
     #When user hits URL 'https://webmail.labcartscientific.com/Mondo/lang/sys/login.aspx'
     #Then user enters emaild 'team11@labcartscientific.com' and Password '5y7aq46C#'
     #Then user click on sign in button
