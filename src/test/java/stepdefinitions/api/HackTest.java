@@ -49,9 +49,7 @@ public class HackTest {
 
         // Print the response
         System.out.println("Response Body: " + responseBody);
-
         System.out.println("First Post Done - Sent news Data to Server");
-
     }
 
 
@@ -72,7 +70,6 @@ public class HackTest {
         response = RestAssured.given()
                 .get(validationUrl);
 
-
         // Send GET request for validation
         Response getResponse = RestAssured.given()
                 .get(validationUrl);
@@ -80,6 +77,14 @@ public class HackTest {
         // Extract the response body as a String
         String responseServer = getResponse.getBody().asString();
         System.out.println("Roshan Server Response " + responseServer);
+
+        // Extract Server 'ItemId' from the response
+        itemId = response.jsonPath().getInt("id");
+        System.out.println("Extracted Item ID : " + itemId);
+
+
+        //Assertion for the ItemId coming from server
+        assertThat(itemId, notNullValue());
 
         // Validate the response status code (you can add more validations if needed)
         int statusCode = getResponse.getStatusCode();
@@ -90,7 +95,5 @@ public class HackTest {
         }
         System.out.println("Item Validated");
     }
-
-
 }
 
