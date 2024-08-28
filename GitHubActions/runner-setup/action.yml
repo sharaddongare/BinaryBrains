@@ -54,7 +54,7 @@ inputs:
   chrome-version:
     description: The version of the chrome and chrome driver to install
     required: false
-    default: 119.0.6045.105-1
+    default: 128.0.6613.84
 
 
 runs:
@@ -82,6 +82,6 @@ runs:
 
     - name: Set up Chrome
       if: ${{ inputs.chrome-install == 'true' }}
-      uses: sharaddongare/BinaryBrains/GitHubActions/chrome-install@main
+      uses: sharaddongare/BinaryBrains/GitHubActions/chrome-install@chromeFix
       with:
         version: ${{ inputs.chrome-version }}

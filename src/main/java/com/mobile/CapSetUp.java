@@ -39,8 +39,8 @@ public class CapSetUp {
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "15.0");
         caps.setCapability("appium:automationName", "UiAutomator2");
-        caps.setCapability("browserName", browserName);
-        //caps.setCapability("appium:app", "storage:filename=Android-MyDemoAppRN.1.3.0.build-244.apk");  // The filename of the mobile app
+      //  caps.setCapability("browserName", browserName);
+        caps.setCapability("appium:app", "storage:filename=app-stepin.apk");  // The filename of the mobile app
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("username", soucelabusername);
         sauceOptions.setCapability("accessKey", soucelabkey);
@@ -63,9 +63,10 @@ public class CapSetUp {
         DesiredCapabilities caps= new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
-        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "OnePlus");//Medium Phone API 35
-        caps.setCapability(MobileCapabilityType.UDID, "12c7bb2c");//
+      //  caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
+       // caps.setCapability(MobileCapabilityType.DEVICE_NAME, "OnePlus");//Medium Phone API 35
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+      //  caps.setCapability(MobileCapabilityType.UDID, "12c7bb2c");//
         caps.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);//for chrome
 
         //To open native Mobile App from local Device we require appPkg and app Activity

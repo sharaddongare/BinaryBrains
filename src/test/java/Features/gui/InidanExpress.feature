@@ -1,4 +1,4 @@
-@IndianExpressGUI
+@HackGui
 Feature: Check functionality of Indian Express
 
   Scenario: Verify Twitter login functionality
