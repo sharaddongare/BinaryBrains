@@ -7,7 +7,7 @@ inputs:
       The version to install (exactly as in
       https://www.ubuntuupdates.org/package/google_chrome/stable/main/base/google-chrome-stable)
     required: false
-    default: 119.0.6045.105-1
+    default: 128.0.6613.84
 
 runs:
   using: composite
