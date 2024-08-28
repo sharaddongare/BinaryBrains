@@ -6,6 +6,7 @@ import com.gui.guiUtility.WebCommonMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.sql.SQLOutput;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -20,6 +21,13 @@ public class IndianBuissnessLogic
 
     private By dontallow = By.xpath(ConfigReader.init_prop().getProperty("ieDontAllowbutton"));
     private By IndiaLink = By.xpath("(//a[contains(text(),'India')])[1]");
+
+
+    private By FirstLinkinIndia = By.xpath("//li[@id=\"slick-slide10\"]");
+    private By firstLinkDate = By.xpath("//div[@id='storycenterbyline']//span[@itemprop='dateModified']");
+    private By FirstHeadLine = By.xpath("//h1[@itemprop='headline']");
+
+
 
 
 
@@ -58,9 +66,38 @@ public class IndianBuissnessLogic
         }
 
 
+
         //driver.findElement(dontallow).click();
 
     }
+
+    public void firstSubWindow() throws InterruptedException {
+
+        Thread.sleep(8000);
+
+        webCommonMethods.clickOnElement(FirstLinkinIndia);
+
+    }
+
+    public void getfirstLinksDetails() throws InterruptedException {
+
+        Thread.sleep(2000);
+
+        String HandleofFistLink=driver.getWindowHandle();
+        System.out.println(HandleofFistLink);
+        String firstDate=webCommonMethods.getTextOfElementOnceVisible(firstLinkDate);
+        System.out.println("First Date"+firstDate);
+        String firstHeadLine=webCommonMethods.getTextOfElementOnceVisible(FirstHeadLine);
+        System.out.println("First headline"+firstHeadLine);
+
+
+
+
+    }
+
+
+
+
     /**
      * This method used to add cart Icon
      *

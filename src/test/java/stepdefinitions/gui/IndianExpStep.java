@@ -38,6 +38,21 @@ public class IndianExpStep {
 
     }
 
+    @Then("Click on FirstSub Window")
+    public void firstSubWindow() throws InterruptedException {
+
+        IB.firstSubWindow();
+
+
+    }
+
+    @Then("Get The parameters from Firstwindow")
+    public void getTheParametersFromFirstwindow() throws InterruptedException {
+
+        IB.getfirstLinksDetails();
+
+    }
+
 /*    @When("user hits URL {string}")
     public void userHitsURLHttpEmailAtagtrCom(String URL) {
         emailPage.hitURL(URL);
