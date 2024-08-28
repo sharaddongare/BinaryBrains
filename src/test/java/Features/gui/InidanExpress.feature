@@ -1,7 +1,7 @@
 @HackGui
 Feature: Check functionality of Indian Express
 
-  Scenario: Verify Twitter login functionality
+  Scenario: Verify Indian Express pages and get data from it
     Given User opens browser
     When user hits URL of Indian Express
     Then User accept the prefferances
