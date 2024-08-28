@@ -86,7 +86,7 @@ public class DriverFactory {
                     ChromeOptions options1 = new ChromeOptions();
 
 
-                    options1.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+            options1.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
             Map<String, Object> prefs = new HashMap<>();
             prefs.put("credentials_enable_service", false);
             prefs.put("profile.password_manager_enabled", false);
@@ -95,12 +95,10 @@ public class DriverFactory {
             if (System.getProperty("os.name").contains("Linux")) {
                 options1.addArguments("--no-sandbox");
                 options1.addArguments("--window-size=1024,768");
-				if (Objects.equals(System.getProperty("headlessBrowser"), "true")){
-                    options1.addArguments("--headless=new");
-				}
+                options1.addArguments("--headless=new");
             }
-                    options1.addArguments("--remote-allow-origins=*");
-//                    options1.addArguments(chromeOptions.get());
+           options1.addArguments("--remote-allow-origins=*");
+//         options1.addArguments(chromeOptions.get());
 
                     
 
