@@ -39,8 +39,9 @@ public class CapSetUp {
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "15.0");
         caps.setCapability("appium:automationName", "UiAutomator2");
-        caps.setCapability("browserName", browserName);
-        //caps.setCapability("appium:app", "storage:filename=Android-MyDemoAppRN.1.3.0.build-244.apk");  // The filename of the mobile app
+//        caps.setCapability("browserName", browserName);
+        caps.setCapability("appium:app", "storage:filename=app-stepin.apk");
+//        caps.setCapability("appium:app", "C:\\Users\\XPRISTO\\Downloads\\app-stepin.apk");  // The filename of the mobile app
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("username", soucelabusername);
         sauceOptions.setCapability("accessKey", soucelabkey);
@@ -48,6 +49,7 @@ public class CapSetUp {
         sauceOptions.setCapability("name", "Android_Demo_" + new Date().getTime());
         sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
         caps.setCapability("sauce:options", sauceOptions);
+
 
         // Start the session
         URL url = new URL(souceLaburl);
@@ -66,7 +68,8 @@ public class CapSetUp {
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "OnePlus");//Medium Phone API 35
         caps.setCapability(MobileCapabilityType.UDID, "12c7bb2c");//
-        caps.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);//for chrome
+//        caps.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);//for chrome
+        caps.setCapability(MobileCapabilityType.APP, "C:\\Users\\XPRISTO\\Downloads\\app-stepin.apk");//
 
         //To open native Mobile App from local Device we require appPkg and app Activity
 //        caps.setCapability("appPackage", "com.linkedin.android");
@@ -83,7 +86,7 @@ public class CapSetUp {
     }
 
     public void quitMobDriver() {
-        getMobDriver().executeScript("sauce:job-result=" + "passed");
+//        getMobDriver().executeScript("sauce:job-result=" + "passed");
         getMobDriver().quit();
         System.out.println("Mobile driver closed successfully");
         logger.info("Mobile driver closed successfully");

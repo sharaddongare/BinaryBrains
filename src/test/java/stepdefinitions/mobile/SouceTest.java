@@ -27,7 +27,6 @@ public class SouceTest {
     @Given("setup the MobileDriver Virtual")
     public void setupTheMobileDriver_Virtual() throws MalformedURLException, InterruptedException {
         capset.setMobDriver_VirtualDevice();
-
     }
     @Given("setup the MobileDriver_LocalDevice")
     public void setupTheMobileDriver_Local() throws MalformedURLException, InterruptedException {
@@ -50,6 +49,27 @@ public class SouceTest {
         logger.info("Clicked On Login Button");
         Thread.sleep(5000);
         //CapSetUp.getMobDriver().findElement(By.name(""));
+
+    }
+    @Then("Launch Step In forum App")
+    public void LaunchStepInApp() throws InterruptedException {
+
+        CapSetUp.getMobDriver().findElement(By.xpath("//android.widget.Button")).click();
+
+    }
+    @Then("Get The Product details")
+    public void getTheProductDetails() throws InterruptedException {
+        String productName=CapSetUp.getMobDriver().findElement(By.xpath("//android.widget.TextView[@text='JBL Wireless Earbuds']")).getText();
+        System.out.println("Product Name" +productName);
+        logger.info("Product Name" +productName);
+
+        String productDetails=CapSetUp.getMobDriver().findElement(By.xpath("//android.widget.TextView[@text='High-quality wireless earbuds with noise cancellation and 20 hours of battery life.']")).getText();
+        System.out.println("Product Details" +productDetails);
+        logger.info("Product Details" +productDetails);
+
+        String productPrice=CapSetUp.getMobDriver().findElement(By.xpath("//android.widget.TextView[@text='₹5999.0']")).getText();
+        System.out.println("Product Price" +productPrice);
+        logger.info("Product Price" +productPrice);
 
     }
 
