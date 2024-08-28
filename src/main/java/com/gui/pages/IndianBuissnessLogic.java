@@ -74,7 +74,6 @@ public class IndianBuissnessLogic {
     public void firstSubWindow() throws InterruptedException {
 
         Thread.sleep(8000);
-
         webCommonMethods.clickOnElement(FirstLinkinIndia);
 
     }
@@ -90,8 +89,8 @@ public class IndianBuissnessLogic {
         String dateTimeWithoutZone = firstDate.replace(" IST","");
         firstHeadLine = webCommonMethods.getTextOfElementOnceVisible(FirstHeadLine);
         System.out.println("First headline" + firstHeadLine);
-        dateTimeWithoutZone.replace("Updated:","");
-        GlobalfirstDate=covertDate(dateTimeWithoutZone);
+        String dateTimeWithoutZone1=dateTimeWithoutZone.replace("Updated: ","");
+        GlobalfirstDate=covertDate(dateTimeWithoutZone1);
 
 
     }
@@ -101,7 +100,7 @@ public class IndianBuissnessLogic {
             String inputDate = Mydate;
             String formattedDate = null;
             // Define the input format
-            DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+            DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy hh:mm");
 
             // Define the output format
             DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd MM yyyy");
