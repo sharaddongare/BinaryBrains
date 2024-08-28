@@ -1,6 +1,7 @@
 package com.gui.guiUtility;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Capabilities;
@@ -45,6 +46,7 @@ public class DriverFactory {
         logger.info("Driver Maximized");
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         logger.info("Implicit wait applied");
+        Allure.description("Web browser opned");
         return getDriver();
     }
 
