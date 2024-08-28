@@ -30,8 +30,8 @@ public class IndianBuissnessLogic {
     private By firstLinkDate = By.xpath("//div[@id='storycenterbyline']//span[@itemprop='dateModified']");
     private By FirstHeadLine = By.xpath("//h1[@itemprop='headline']");
 
-    String GlobalfirstDate=null;
-    String firstHeadLine=null;
+    public static String GlobalfirstDate=null;
+    public static String firstHeadLine=null;
 
 
     /**

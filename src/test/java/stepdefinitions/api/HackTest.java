@@ -1,5 +1,6 @@
 package stepdefinitions.api;
 
+import com.gui.pages.IndianBuissnessLogic;
 import io.cucumber.java.en.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -62,6 +63,37 @@ public class HackTest {
                 "  \"name\": \"India won the match\",\n" +
                 "  \"description\": \"India won the match on 15-Aug-2024\",\n" +
                 "  \"price\": \"15082024\",\n" +
+                "  \"item_type\": \"Vois\"\n" +
+                "}";
+
+        // Send POST request
+        response = RestAssured.given()
+                .header("accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(requestBody)
+                .post("/items/");
+
+        // Extract the response body as a String
+        String responseBody = response.getBody().asString();
+
+        // Print the response
+        System.out.println("Response Body: " + responseBody);
+        System.out.println("First Post Done - Sent news Data to Server");
+    }
+
+    @When("I post the news data to the API Server with Web Inputs")
+    public void iSendTheNewsDataToTheAPIwithGlobalvariables() throws JSONException {
+        RestAssured.baseURI = "http://ec2-54-254-162-245.ap-southeast-1.compute.amazonaws.com:9000";
+
+        // Create request body
+        String headLine=IndianBuissnessLogic.firstHeadLine;
+        String price1=IndianBuissnessLogic.GlobalfirstDate;
+        String price=price1.replaceAll("\\s+","");
+
+        String requestBody = "{\n" +
+                "  \"name\": \"India won the match\",\n" +
+                "  \"description\": \""+headLine+"\",\n" +
+                "  \"price\": \""+price+"\",\n" +
                 "  \"item_type\": \"Vois\"\n" +
                 "}";
 

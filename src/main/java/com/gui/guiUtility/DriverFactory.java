@@ -46,7 +46,7 @@ public class DriverFactory {
         logger.info("Driver Maximized");
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         logger.info("Implicit wait applied");
-        Allure.description("Web browser opned");
+        Allure.description("To check Indian Express functionality");
         return getDriver();
     }
 

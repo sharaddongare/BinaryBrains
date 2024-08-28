@@ -9,6 +9,11 @@ Feature: Check functionality of Indian Express
     Then Click on FirstSub Window
     Then Get The parameters from Firstwindow
 
+    Given I have news data
+    When I post the news data to the API Server with Web Inputs
+    And Asserted item ID should be present in the response
+    When Validate the created item using its ItemID from Server
+
 
 
 
