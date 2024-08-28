@@ -1,33 +1,9 @@
 @MobileTest1
 Feature: Test Mobile
 
-  Scenario: Verify login page
-    Given setup the MobileDriver Virtual
-    Given setup the MobileDriver_LocalDevice
-    Then Open LinkedIn App
-    Then Verify somethoing
+  Scenario: Get Product Details
+    Given Setup Virtual MobileDriver
+    Then Open Products
+    Then Get Product Details for 3
     Then Close the App
-
-
-  Scenario: Verify login page
-    #Given set capabilities for Souce lab
-    #Given test SouceLab
-    Given TestingoFSouceLab_LD
-
-  @MobileTestKp
-  Scenario: Verify LD App page
-    #Given set capabilities for Souce lab
-    #Given test SouceLab
-    Given TestingoFSouceLab_LD_LocalDevice
-
-    #Then Check for mail entries
-
-#    Then User clicks on Sign in button
-#    Then User enters 'valid_Email_ID'
-#    Then user enters valid Username and Password
-#    And click on login button
-#    Then user should close the browser
-
-
-
 
