@@ -22,6 +22,22 @@ public class HackTest {
     @Given("I have news data")
     public void iHaveNewsData() {
         // Set up news data (title, content, date)
+        System.out.println("Prepare Base URL and Payload");
+
+        // Replace with actual API endpoint
+        String apiUrl = "http://ec2-54-254-162-245.ap-southeast-1.compute.amazonaws.com:9000";
+
+        // Prepare request body
+        Map<String, String> data = new HashMap<>();
+        data.put("title", "India Won the match");
+        data.put("content", "India won the match on 15-Aug-2024,India clinched a thrilling victory in their cricket match, delighting fans nationwide. This win, coinciding with India’s Independence Day, added a special significance to the celebration");
+        data.put("price", "15082024");
+        data.put("item_type", "Vodafone");
+
+        response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(data)
+                .post(apiUrl);
         System.out.println("Step 1 - Done!");
     }
 
@@ -81,7 +97,6 @@ public class HackTest {
         // Extract Server 'ItemId' from the response
         itemId = response.jsonPath().getInt("id");
         System.out.println("Extracted Item ID : " + itemId);
-
 
         //Assertion for the ItemId coming from server
         assertThat(itemId, notNullValue());

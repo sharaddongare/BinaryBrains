@@ -1,11 +1,5 @@
 Feature: News API Interaction
 
-#  @HackTest1
-#  Scenario: Post news and validate
-#    Given I have news data
-#    When I validate the created item
-#    Then the validation should be successful
-
   @HackApi1
   Scenario: Post news and validate
     Given I have news data
