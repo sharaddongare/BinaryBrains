@@ -6,6 +6,7 @@ import com.gui.guiUtility.WebCommonMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Iterator;
 import java.util.Set;
 
 public class IndianBuissnessLogic
@@ -43,7 +44,19 @@ public class IndianBuissnessLogic
 
         webCommonMethods.clickOnElement(IndiaLink);
         Set<String > handles =driver.getWindowHandles();
+        String Parentwindow=driver.getWindowHandle();
         System.out.println(handles.getClass().getName());
+        Iterator<String> it1= handles.iterator();
+
+        while(it1.hasNext()){
+
+            String chil_window= it1.next();
+            if (!Parentwindow.equals(chil_window)){
+                driver.switchTo().window(chil_window);
+                System.out.println(driver.switchTo().window(chil_window).getTitle());
+            }
+        }
+
 
         //driver.findElement(dontallow).click();
 
