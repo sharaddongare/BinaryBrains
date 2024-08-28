@@ -1,4 +1,4 @@
-@MobileTest1
+@HackMobile
 Feature: Test Mobile
 
   Scenario: Get Product Details
