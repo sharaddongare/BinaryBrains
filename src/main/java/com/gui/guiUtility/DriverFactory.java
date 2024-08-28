@@ -7,6 +7,7 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -79,27 +80,27 @@ public class DriverFactory {
         Capabilities options;
         switch (browser) {
             case "remote-chrome":
-                options = new ChromeOptions();
+
                 try {
 
+                    ChromeOptions options1 = new ChromeOptions();
 
 
-
-            options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+                    options1.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
             Map<String, Object> prefs = new HashMap<>();
             prefs.put("credentials_enable_service", false);
             prefs.put("profile.password_manager_enabled", false);
-            options.setExperimentalOption("prefs", prefs);
+                    options1.setExperimentalOption("prefs", prefs);
 
             if (System.getProperty("os.name").contains("Linux")) {
-                options.addArguments("--no-sandbox");
-                options.addArguments("--window-size=1024,768");
+                options1.addArguments("--no-sandbox");
+                options1.addArguments("--window-size=1024,768");
 				if (Objects.equals(System.getProperty("headlessBrowser"), "true")){
-					options.addArguments("--headless=new");
+                    options1.addArguments("--headless=new");
 				}
             }
-			options.addArguments("--remote-allow-origins=*");
-            options.addArguments(chromeOptions.get());
+                    options1.addArguments("--remote-allow-origins=*");
+//                    options1.addArguments(chromeOptions.get());
 
                     
 
@@ -110,7 +111,7 @@ public class DriverFactory {
 
 
                     
-                    driver.set(new RemoteWebDriver((new URL(url)), options));
+                    driver.set(new RemoteWebDriver((new URL(url)), options1));
                 } catch (MalformedURLException e) {
                     logger.info("Exception while opening a remote browser {} {}", browser, e.getStackTrace());
                 }
