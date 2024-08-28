@@ -9,12 +9,13 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class HackTest {
-
 
     private Response response;
     private int itemId;
@@ -34,10 +35,21 @@ public class HackTest {
         data.put("price", "15082024");
         data.put("item_type", "Vodafone");
 
+        try {
+            // Convert map to JSON string
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonRequestBody = objectMapper.writeValueAsString(data);
+
+            // Print the JSON request body
+            System.out.println("JSON Request Body: " + jsonRequestBody);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         response = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(data)
                 .post(apiUrl);
+
         System.out.println("Step 1 - Done!");
     }
 
@@ -75,7 +87,6 @@ public class HackTest {
         // Extract the 'id' from the response
         itemId = response.jsonPath().getInt("id");
         System.out.println("Extracted Item ID : " + itemId);
-
         assertThat(itemId, notNullValue());
         System.out.println("Assertion for ItemID is Done!");
     }
