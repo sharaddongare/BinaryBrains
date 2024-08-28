@@ -13,8 +13,8 @@ jobs:
 
     steps: 
 
-      - name: Runner Setup
-        uses: sharaddongare/BinaryBrains/GitHubActions/runner-setup@main
+      # - name: Runner Setup
+      #   uses: sharaddongare/BinaryBrains/GitHubActions/runner-setup@main
         
       - name: Checkout
         uses: actions/checkout@v3
