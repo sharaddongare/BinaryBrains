@@ -33,6 +33,13 @@ public class BasicCommonSteps {
 
     }
 
+    @When("user hits URL of Indian Express")
+    public void userHitsURLOfIndianExpress() {
+        String url = ConfigReader.init_prop().getProperty("appUrl");
+        //LOG.info("User navigates to URL {}", url);
+        DriverFactory.getDriver().get(url);
+    }
+
 
     /**
      *
